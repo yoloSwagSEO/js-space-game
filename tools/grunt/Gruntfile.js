@@ -22,32 +22,15 @@ module.exports = function(grunt) {
 		watch: {
       source: {
         files: ['../../sass/dist/**/*.scss'],
-        tasks: ['sass_globbing','sass', 'ftp_push'],
+        tasks: ['sass_globbing','sass'],
         options: {
           livereload: true // needed to run LiveReload
         }
       }
-    },
-		ftp_push: {
-			js_game: {
-				options: {
-					host: "w013fbb2.kasserver.com",
-					dest: "/",
-					port: 21,
-					username: "f00bc720",
-					password: "MvVthSs24mRA3AQg",
-					keepAlive: 10000
-				},
-        files: [
-          {expand: true, cwd: './', src: ['../../css/dist/**/*.*'], dest: './'},
-					{expand: true, cwd: './', src: ['../../sass/*.*'], dest: './'}
-        ]
-			}
-		}
+    }
 	});
 	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-sass-globbing');
-	grunt.loadNpmTasks('grunt-ftp-push');
 	grunt.registerTask('default',['watch']);
 };
