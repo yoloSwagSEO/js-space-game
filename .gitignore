@@ -1,2 +1,3 @@
 node_modules
-.ftpconfig
+*.ftpconfig
+.DS_Store
