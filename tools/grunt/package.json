@@ -16,8 +16,7 @@
     "grunt-contrib-watch": "~1.0.0",
     "grunt-contrib-htmlmin": "~1.4.0",
     "grunt-contrib-cssmin": "~1.0.1",
-    "grunt-sass-globbing": "~1.5.1",
-    "grunt-ftp-push": "~1.0.0"
+    "grunt-sass-globbing": "~1.5.1"
   },
   "dependencies": {
     "express": "^4.13.4"
