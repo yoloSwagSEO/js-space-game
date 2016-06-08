@@ -11,6 +11,8 @@ html {
   border-radius: 4px; }
 
 .building .time {
-  font-size: 110%; }
+  font-size: 110%;
+  -webkit-transform: scale(1);
+          transform: scale(1); }
 
 /* END Building Styles */
