@@ -3,21 +3,29 @@ html {
 	font-size: 16px;
 }
 
+.hidden {
+	display: none;
+}
 
 /* Building Styles */
 .building {
+	width: 400px;
 	background: #e4e4e4;
 	border: 1px solid #949494;
 	border-radius: 4px;
-}
-
-.building .time {
-	font-size: 110%;
-	transform: scale(1);
-}
-
-.building .info {
-	font-weight: bold;
-	font-size: 110%;
+	.time {
+		font-size: 110%;
+		transform: scale(1);
+	}
+	.info {
+		font-weight: bold;
+		font-size: 110%;
+	}
+	.upgradeTime {
+		cursor: pointer;
+		&:hover {
+			color: red;
+		}
+	}
 }
 /* END Building Styles */
