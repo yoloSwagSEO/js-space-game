@@ -21,8 +21,7 @@ module.exports = function(grunt) {
 		},
 		autoprefixer: {
 			options: {
-				// Add some browser thresholds for css compatibility in the future
-				// (for example: we are supporting only IE8, Firefox 32 and Chrome 35, etc)
+				browsers: ['last 4 versions']
 			},
 			files: {
 				src: '../../css/dist/*.css'
