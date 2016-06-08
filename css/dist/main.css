@@ -15,4 +15,8 @@ html {
   -webkit-transform: scale(1);
           transform: scale(1); }
 
+building .info {
+  font-weight: bold;
+  font-size: 110%; }
+
 /* END Building Styles */
