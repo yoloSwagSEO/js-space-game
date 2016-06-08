@@ -19,12 +19,21 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		autoprefixer: {
+			options: {
+				// Add some browser thresholds for css compatibility in the future
+				// (for example: we are supporting only IE8, Firefox 32 and Chrome 35, etc)
+			},
+			files: {
+				src: '../../css/dist/*.css'
+			}
+		},
 		watch: {
       source: {
         files: ['../../sass/dist/**/*.scss'],
-        tasks: ['sass_globbing','sass'],
+        tasks: ['sass_globbing','sass', 'autoprefixer'],
         options: {
-          livereload: true // needed to run LiveReload
+          livereload: false // needed to run LiveReload
         }
       }
     }
@@ -32,5 +41,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-sass-globbing');
+	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.registerTask('default',['watch']);
 };
