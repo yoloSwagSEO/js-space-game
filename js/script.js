@@ -34,14 +34,10 @@ SpaceGame = function(){
 	SpaceGame.load_db_buildings();
 
 	SpaceGame.calculat_build_time = function(buildTime, multiplier, level){
-		// var	x = self.level() + 1.0;
-		// var	y = self.multiplier();
-		// var	z	= self.baseTime();
 		level++;
 		var time = Math.floor((buildTime*level)+Math.pow(buildTime, level/multiplier));
 		console.log('calc', time);
-		return time; //Math.floor((z*x)+Math.pow(z, x/y));
-		// Math.floor((self.baseTime()*(self.level() + 1))+Math.pow(self.baseTime(), (self.level() + 1)/self.multiplier()));
+		return time;
 	};
 };
 ko.applyBindings(SpaceGame);
