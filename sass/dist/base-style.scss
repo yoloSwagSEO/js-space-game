@@ -1,6 +1,7 @@
 /* GlobalStyles */
 html {
 	font-size: 16px;
+	background-color: #21252b;
 }
 
 .hidden {
@@ -10,12 +11,26 @@ html {
 /* Building Styles */
 .building {
 	width: 400px;
-	background: #e4e4e4;
+	background: #f1f1f1;
 	border: 1px solid #949494;
 	border-radius: 4px;
-	.time {
-		font-size: 110%;
-		transform: scale(1);
+	height: 3.5rem;
+	margin: .5rem auto;
+	.level{
+		&::before {
+			content: 'Lvl:';
+		}
+	}
+	.upgradeTime, .remainingTime {
+		font-size: 150%;
+		float: right;
+		height: 2.5rem;
+		width: 2.5rem;
+		line-height: 2.5rem;
+		text-align: center;
+		border: 1px solid #9c9c9c;
+		border-radius: 50%;
+		margin: .4rem;
 	}
 	.info {
 		font-weight: bold;
@@ -24,7 +39,8 @@ html {
 	.upgradeTime {
 		cursor: pointer;
 		&:hover {
-			color: red;
+			color: #cc1d1d;
+			border-color: #717171;
 		}
 	}
 }
