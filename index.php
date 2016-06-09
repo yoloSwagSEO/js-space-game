@@ -2,8 +2,8 @@
 <html>
 	<?php include_once('meta/header.php'); ?>
 	<body>
-		<div class="content" data-bind="css:Game.apiStatus()">
-			<div class="building_list" data-bind="foreach: Game.buildings">
+		<div class="content" data-bind="css:SpaceGame.apiStatus()">
+			<div class="building_list" data-bind="foreach: SpaceGame.buildings">
 				<div class="building" data-bind="css: { upgrading: isRunning() == true }">
 					<span data-bind="text:id()" class="hidden"></span>
 					<span data-bind="text:level()" class="level"></span>

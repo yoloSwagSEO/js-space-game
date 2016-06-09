@@ -1,23 +1,35 @@
 console.log('start');
-Game = function(){
-	if(Game.buildings === undefined){
-		var self = this;
-		Game.apiStatus = ko.observable();
-		Game.buildings = ko.observableArray();
-		Game.countDown = ko.observable();
-		Game.apiStatus('fetch');
+SpaceGame = function(){
+	var self = this;
+	SpaceGame.apiStatus = ko.observable();
+	SpaceGame.db_buildings = ko.observableArray();
+	SpaceGame.db_resources = ko.observableArray();
 
-		// add static test-buildings TODO: load from DB
-		Game.initBetaData = function(){
-			var currentTime = new Date().getTime();
-			Game.buildings.push(new Building([1, 1, 'Titan Mine', 10, 4, 11]));//(new Date()).getTime()
-			Game.buildings.push(new Building([2, 1, 'Solar Energy Power Plant', 15, 4, 11]));//(new Date()).getTime()
-			// console.log(Game.buildings());
-			console.log('FAIL!!!');
-		};
-		Game.initBetaData();
-	}else{
-		console.log('WTF');
-	}
+	SpaceGame.apiStatus('fetch');
+
+	// add static test-buildings TODO: load from DB
+	var load_db_buildings = function(status){
+		SpaceGame.apiStatus('fetch');
+		$.ajax({
+			url: 'api/init_db_data.php',
+			data: {},
+			cache: false
+		}).done(function(data) {
+			//console.log(data);
+			var obj = JSON3.parse(data);
+			SpaceGame.db_buildings.removeAll();
+			$.each(obj.buildings, function(index, value) {
+				SpaceGame.db_buildings.push(new DB_Building(value));
+				console.log(index, value);
+			});
+			$.each(obj.resources, function(index, value) {
+				SpaceGame.db_resources.push(new DB_Resource(value));
+				console.log(index, value);
+			});
+		}).error(function(data) {
+			console.log("NEW AJAX ERROR!", data);
+		});
+	};
+	load_db_buildings();
 };
-ko.applyBindings(Game);
+ko.applyBindings(SpaceGame);
