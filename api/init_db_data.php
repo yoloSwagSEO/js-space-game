@@ -51,6 +51,8 @@ Class Building {
 		$this->id = $data['id'];
 		$this->name = $data['name'];
 		$this->description = $data['description'];
+		$this->buildTime = $data['buildTime'];
+		$this->buildTimeMultiplier = $data['buildTimeMultiplier'];
 		$this->powerMultiplier = $data['powerMultiplier'];
 		$this->resourceMultiplier = $data['resourceMultiplier'];
 		$this->powers = null;

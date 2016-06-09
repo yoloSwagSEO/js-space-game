@@ -1,0 +1,23 @@
+console.log('start');
+SpaceGame = function(){
+	if(SpaceGame.buildings === undefined){
+		var self = this;
+		SpaceGame.apiStatus = ko.observable();
+		SpaceGame.buildings = ko.observableArray();
+		SpaceGame.countDown = ko.observable();
+		SpaceGame.apiStatus('fetch');
+
+		// add static test-buildings TODO: load from DB
+		SpaceGame.initBetaData = function(){
+			var currentTime = new Date().getTime();
+			SpaceGame.buildings.push(new Building([1, 1, 'Titan Mine', 10, 4, 11]));//(new Date()).getTime()
+			SpaceGame.buildings.push(new Building([2, 1, 'Solar Energy Power Plant', 15, 4, 11]));//(new Date()).getTime()
+			// console.log(SpaceGame.buildings());
+			console.log('FAIL!!!');
+		};
+		SpaceGame.initBetaData();
+	}else{
+		console.log('WTF');
+	}˝
+};
+ko.applyBindings(SpaceGame);
