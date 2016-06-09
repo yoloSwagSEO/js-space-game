@@ -26,6 +26,7 @@ SpaceGame = function(){
 				SpaceGame.db_resources.push(new DB_Resource(value));
 				console.log(index, value);
 			});
+			SpaceGame.apiStatus('done');
 		}).error(function(data) {
 			console.log("NEW AJAX ERROR!", data);
 		});

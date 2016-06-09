@@ -3,6 +3,8 @@ function DB_Building(data) {
 	this.id = ko.observable(data.id);
 	this.name = ko.observable(data.name);
 	this.description = ko.observable(data.description);
+	this.buildTime = ko.observable(data.buildTime);
+	this.buildTimeMultiplier = ko.observable(data.buildTimeMultiplier);
 	this.powerMultiplier = ko.observable(data.powerMultiplier);
 	this.resourceMultiplier = ko.observable(data.resourceMultiplier);
 	this.powers = ko.observableArray();
