@@ -8,7 +8,7 @@ SpaceGame = function(){
 	SpaceGame.apiStatus('fetch');
 
 	// add static test-buildings TODO: load from DB
-	var load_db_buildings = function(status){
+	SpaceGame.load_db_buildings = function(status){
 		SpaceGame.apiStatus('fetch');
 		$.ajax({
 			url: 'api/init_db_data.php',
@@ -31,6 +31,17 @@ SpaceGame = function(){
 			console.log("NEW AJAX ERROR!", data);
 		});
 	};
-	load_db_buildings();
+	SpaceGame.load_db_buildings();
+
+	SpaceGame.calculat_build_time = function(buildTime, multiplier, level){
+		// var	x = self.level() + 1.0;
+		// var	y = self.multiplier();
+		// var	z	= self.baseTime();
+		level++;
+		var time = Math.floor((buildTime*level)+Math.pow(buildTime, level/multiplier));
+		console.log('calc', time);
+		return time; //Math.floor((z*x)+Math.pow(z, x/y));
+		// Math.floor((self.baseTime()*(self.level() + 1))+Math.pow(self.baseTime(), (self.level() + 1)/self.multiplier()));
+	};
 };
 ko.applyBindings(SpaceGame);

@@ -9,7 +9,8 @@
 					<!-- <span data-bind="text:level()" class="level"></span> -->
 					<span data-bind="text:name()" class="name"></span>
 					<span data-bind="text:description()" class="description"></span>
-					<!-- <span data-bind="text:upgradeTime(), click: StartCounter, visible: !isRunning()" class="upgradeTime"></span> -->
+					<span data-bind="text:realBuildTime()" class="upgradeTime"></span>
+										<!-- <span data-bind="text:upgradeTime(), click: StartCounter, visible: !isRunning()" class="upgradeTime"></span> -->
 					<!-- <span data-bind="text:elapsedTime()"></span> -->
 					<!-- <span data-bind="text:remainingTime() , visible: isRunning()" class="remainingTime"></span> -->
 				</div>
