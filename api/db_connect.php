@@ -1,15 +1,16 @@
 <?php
 
-	// allinc
-	// $hostname  = "dd1816.kasserver.com";
-	// $database  = "d0206fb4";
-	// $username  = "d0206fb4";
-	// $password  = "uA6-MRX-b76-fGk";
+	// live
+	$hostname  = "dd1816.kasserver.com";
+	$database  = "d02260f9";
+	$username  = "d02260f9";
+	$password  = "JRv-Qp4-M3h-UxJ";
 
-	$hostname  = "localhost:8889";
-	$database  = "js-space-game";
-	$username  = "root";
-	$password  = "root";
+	// localhost
+	// $hostname  = "localhost:8889";
+	// $database  = "js-space-game";
+	// $username  = "root";
+	// $password  = "root";
 
 	//connection to the database
 	$dbhandle = mysqli_connect($hostname, $username, $password, $database) or die("Unable to connect to mysqli");
