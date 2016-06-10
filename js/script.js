@@ -54,6 +54,6 @@ SpaceGame = function(){
 			timeStr = timeVal + "s";
 		}
 		return timeStr;
-	}
+	};
 };
 ko.applyBindings(SpaceGame);

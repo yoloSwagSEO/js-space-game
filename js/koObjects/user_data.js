@@ -1,6 +1,6 @@
 function USER_Building(data, fromDb) {
+	var self = this;
 	if (fromDb) { // init from DB
-		var self = this;
 		self.id = ko.observable(data.id);
 		self.level = ko.observable(/* TODO value from DB */);
 		self.name = ko.observable(data.name);
@@ -22,11 +22,10 @@ function USER_Building(data, fromDb) {
 			return time;
 		});
 		self.buildTimeText = ko.computed(function() {
-			return 'build time: ' + SpaceGame.buildTimeString(self.realBuildTime());
+			return 'upgrade time: ' + SpaceGame.buildTimeString(self.realBuildTime());
 		});
 		self.upgradeStartTime = ko.observable(/* TODO: value from DB */);
 	} else { // init from knockoutObject
-		var self = this;
 		self.id = ko.observable(data.id());
 		self.level = ko.observable(0);
 		self.name = ko.observable(data.name());
@@ -48,7 +47,7 @@ function USER_Building(data, fromDb) {
 			return time;
 		});
 		self.buildTimeText = ko.computed(function() {
-			return 'build time: ' + SpaceGame.buildTimeString(self.realBuildTime());
+			return 'upgrade time: ' + SpaceGame.buildTimeString(self.realBuildTime());
 		});
 		self.upgradeStartTime = ko.observable((new Date()).getTime());
 	}
@@ -56,18 +55,25 @@ function USER_Building(data, fromDb) {
 	// upgradeTimer
 	self.timerId = 0;
 	self.elapsedTime = ko.observable(0);
-	self.initialTime = self.realBuildTime();
+	self.initialTime = ko.computed(function(){
+			return self.realBuildTime();
+	});
 	self.remainingTime = ko.computed(function(){
-			return self.initialTime - self.elapsedTime();
+			return self.initialTime() - self.elapsedTime();
 	});
 	self.remainingTimeText = ko.computed(function() {
 		return SpaceGame.buildTimeString(self.remainingTime());
 	});
-	self.progressWidth = ko.computed(function() {
-		var progress = (self.elapsedTime() * 100) / self.initialTime;
-		return 'width: ' + progress + '%';
-	});
 	self.isRunning = ko.observable(false);
+	self.progressWidth = ko.computed(function() {
+		var progress = ((self.elapsedTime() * 100) / self.initialTime()).toFixed(0);
+		var progressStr = self.isRunning() ?
+				"background: -moz-linear-gradient(left,  #d0d0d0 0%, #d0d0d0 " +parseInt(progress)+"%, rgba(255,255,255, 0.45) "+(parseInt(progress)+1)+"%, rgba(255,255,255, 0.45) 100%);"+
+				"background: -webkit-linear-gradient(left,  #d0d0d0 0%, #d0d0d0 " +parseInt(progress)+"%, rgba(255,255,255, 0.45) "+(parseInt(progress)+1)+"%, rgba(255,255,255, 0.45) 100%);"+
+				"background: linear-gradient(to right,  #d0d0d0 0%, #d0d0d0 " +parseInt(progress)+"%, rgba(255,255,255, 0.45) "+(parseInt(progress)+1)+"%, rgba(255,255,255, 0.45) 100%);"
+				: "";
+		return progressStr;
+	});
 	self.StartCounter = function(){
 		self.elapsedTime(0);
 		self.isRunning(true);
