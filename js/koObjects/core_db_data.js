@@ -19,6 +19,14 @@ function DB_Building(data) {
 		var time = SpaceGame.calculat_build_time(self.buildTime(), self.buildTimeMultiplier(), 0);
 		return time;
 	});
+	self.buildTimeText = ko.computed(function() {
+		return 'build time: ' + SpaceGame.buildTimeString(self.realBuildTime());
+	});
+
+	self.startBuilding = function(data, e){
+		console.log('addNewUserBuilding', e, data);
+		SpaceGame.user_buildings.push(new USER_Building(data, false));
+	}
 }
 
 function DB_BuildingResource(data) {

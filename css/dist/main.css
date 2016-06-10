@@ -3,38 +3,78 @@
 @import url(../font-awesome.min.css);
 html {
   font-size: 16px;
-  background-color: #21252b; }
+  background-color: #21252b;
+  color: #F4F4F4; }
 
 .hidden {
   display: none; }
 
 /* Building Styles */
-.building {
-  width: 400px;
-  background: #f1f1f1;
-  border: 1px solid #949494;
-  border-radius: 4px;
-  height: 3.5rem;
+.building_list {
+  max-width: 400px;
   margin: .5rem auto; }
-  .building .level::before {
-    content: 'Lvl:'; }
-  .building .name {
-    font-weight: bold;
-    font-size: 110%; }
-  .building .upgradeTime, .building .remainingTime {
-    font-size: 150%;
-    float: right;
-    height: 2.5rem;
-    width: 2.5rem;
-    line-height: 2.5rem;
-    text-align: center;
-    border: 1px solid #9c9c9c;
-    border-radius: 50%;
-    margin: .4rem; }
-  .building .upgradeTime {
-    cursor: pointer; }
-    .building .upgradeTime:hover {
-      color: #cc1d1d;
-      border-color: #717171; }
+  .building_list .building {
+    width: auto;
+    background: #f1f1f1;
+    border: 1px solid #949494;
+    color: #111;
+    border-radius: 4px;
+    height: auto;
+    padding: .22rem;
+    margin: .5rem 0;
+    /* FF3.6-15 */
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #AFAFAF 0%, #AFAFAF 9%, #f1f1f1 10%, #f1f1f1 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ }
+    .building_list .building table {
+      width: 100%;
+      border-spacing: 0px; }
+    .building_list .building .level {
+      min-width: 2rem;
+      font-size: 150%;
+      font-weight: bold;
+      text-align: center;
+      border-right: 1px solid #afafaf; }
+    .building_list .building .name {
+      display: block;
+      font-weight: bold; }
+    .building_list .building .description {
+      display: block; }
+    .building_list .building .td_info {
+      padding-left: .5rem; }
+    .building_list .building .startBuilding {
+      display: block;
+      float: right;
+      font-size: 150%;
+      height: 2.5rem;
+      width: 2.5rem;
+      line-height: 2.5rem;
+      text-align: center;
+      color: #393939;
+      border: 1px solid #9c9c9c;
+      border-radius: 50%;
+      margin: .4rem;
+      cursor: pointer; }
+      .building_list .building .startBuilding:hover {
+        color: #cc1d1d;
+        border-color: #717171; }
+    .building_list .building .remainingTime {
+      display: block;
+      float: right;
+      font-size: 90%;
+      font-weight: bold;
+      height: 2.5rem;
+      width: 2.5rem;
+      line-height: 2.5rem;
+      text-align: center;
+      color: #393939;
+      border: 1px solid #00ff00;
+      border-radius: 50%;
+      margin: .4rem; }
+    .building_list .building .progress_bar {
+      height: 6px; }
+      .building_list .building .progress_bar .fullbar .growbar {
+        height: 6px;
+        background: #e4e4e4; }
 
 /* END Building Styles */
