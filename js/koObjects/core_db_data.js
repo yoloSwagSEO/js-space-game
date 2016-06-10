@@ -26,7 +26,7 @@ function DB_Building(data) {
 	self.startBuilding = function(data, e){
 		console.log('addNewUserBuilding', e, data);
 		SpaceGame.user_buildings.push(new USER_Building(data, false));
-	}
+	};
 }
 
 function DB_BuildingResource(data) {

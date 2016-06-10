@@ -7,5 +7,4 @@
 	<!-- Objects.js -->
 	<script type="text/javascript" src="js/koObjects/core_db_data.js"></script>
 	<script type="text/javascript" src="js/koObjects/user_data.js"></script>
-	<script type="text/javascript" src="js/koObjects/buildings.js"></script>
 </footer>
