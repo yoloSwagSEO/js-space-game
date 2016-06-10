@@ -5,6 +5,8 @@ SpaceGame = function(){
 	SpaceGame.db_buildings = ko.observableArray();
 	SpaceGame.db_resources = ko.observableArray();
 
+	SpaceGame.user_buildings = ko.observableArray();
+
 	SpaceGame.apiStatus('fetch');
 
 	// add static test-buildings TODO: load from DB
@@ -38,6 +40,20 @@ SpaceGame = function(){
 		var time = Math.floor((buildTime*level)+Math.pow(buildTime, level/multiplier));
 		console.log('calc', time);
 		return time;
+	};
+
+	SpaceGame.buildTimeString = function(timeVal){
+		var timeStr = "";
+		if (timeVal > (60*60*24)){
+			timeStr = (timeVal / 60 / 60 / 24).toFixed(1) + "d";
+		} else if (timeVal > (60*60)){
+			timeStr = (timeVal / 60 / 60).toFixed(1) + "h";
+		} else if (timeVal > 60){
+			timeStr = (timeVal / 60).toFixed(1) + "m";
+		} else {
+			timeStr = timeVal + "s";
+		}
+		return timeStr;
 	};
 };
 ko.applyBindings(SpaceGame);
