@@ -99,7 +99,7 @@ require('meta/header.php');
 	<div class="right_content">
 	    <div class="user_register">
 			<form role="form" method="post" action="" autocomplete="off">
-				<h2>Please Sign Up</h2>
+				<h2>Sign Up</h2>
 				<hr>
 				<?php
 				//check for any errors

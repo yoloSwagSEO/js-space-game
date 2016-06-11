@@ -11,6 +11,37 @@ body{
 	display: none;
 }
 
+/********************************************************
+************************ LOGIN ************************
+*****************-***************************************/
+.container{
+	max-width: 1024px;
+	margin: 0 auto;
+	.right_content{
+		width: 40%;
+		float: right;
+		.user_register{
+			.bg-danger{
+				color: red;
+			}
+			.form-control.input-lg{
+				height: 3rem;
+				width: 100%;
+				color: #111;
+			}
+			.button.fill.button-primary.button-block.button-lg{
+				height: 3rem;
+				width: 100%;
+			}
+		}
+	}
+}
+
+
+/********************************************************
+************************ GAME ************************
+********************************************************/
+
 /* Building Styles */
 .building_list{
 	width: 100%;
