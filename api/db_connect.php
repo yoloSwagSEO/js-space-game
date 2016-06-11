@@ -17,4 +17,32 @@
 	$dbhandle = mysqli_connect($hostname, $username, $password, $database, $hostport) or die("Unable to connect to mysqli");
 	//select a database to work with
 	//$selected = mysqli_select_db($database,$dbhandle) or die("Could not select examples");
+
+	// define('DBHOST','dd1816.kasserver.com');
+	// define('DBUSER','d0206f83');
+	// define('DBPASS','smb3_pondering');
+	// define('DBNAME','d0206f83');
+	// define('DBPORT', '');
+
+	define('DBHOST', 'localhost');
+	define('DBUSER', 'root');
+	define('DBPASS', 'root');
+	define('DBNAME', 'js-space-game');
+	define('DBPORT', '8889');
+
+	//application address
+	define('DIR','http://onmyown.at/jsgame/');
+	define('SITEEMAIL','noreply@onmyown.at');
+	ob_start();
+	session_start();
+	try {
+		//create PDO connection
+		$db = new PDO("mysql:host=".DBHOST.";port=".DBPORT.";dbname=".DBNAME, DBUSER, DBPASS); //check port
+		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+	} catch(PDOException $e) {
+		//show error
+		echo '<p class="bg-danger">'.$e->getMessage().'</p>';
+		exit;
+	}
 ?>
