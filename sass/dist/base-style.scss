@@ -1,7 +1,8 @@
 /* GlobalStyles */
 $primary_text_color: #f4f4f4;
 $primary_input_text_color: #111;
-$primary_link_color: #13a3f4;
+$primary_link_color_hover: #13a3f4;
+$top_text_color: #111;
 
 html {
 	font-size: 16px;
@@ -15,35 +16,63 @@ a{
 	text-decoration: none;
 	color: $primary_text_color;
 	&:hover{
-		color: $primary_link_color;
+		color: $primary_link_color_hover;
 	}
 }
 .hidden {
 	display: none;
 }
 
-/********************************************************
-************************ LOGIN ************************
-*****************-***************************************/
 .container{
 	max-width: 1024px;
 	margin: 0 auto;
-	.right_content{
-		width: 40%;
+}
+
+.top_bar{
+	background-color: #f1f1f1;
+	color: $top_text_color;
+	a{
+		text-decoration: none;
+		color: $top_text_color;
+		&:hover{
+			color: $primary_link_color_hover;
+		}
+	}
+	&.loggedOut{
+		.user_bar.logout{
+			display: none;
+		}
+	}
+	&.loggedIn{
+		.user_bar.login{
+			display: none;
+		}
+	}
+	.user_bar{
 		float: right;
-		.user_register{
-			.bg-danger{
-				color: red;
-			}
-			.form-control.input-lg{
-				height: 3rem;
-				width: 100%;
-				color: #111;
-			}
-			.button.fill.button-primary.button-block.button-lg{
-				height: 3rem;
-				width: 100%;
-			}
+	}
+}
+
+
+/********************************************************
+************************ LOGIN ************************
+*****************-***************************************/
+
+.right_content{
+	width: 40%;
+	float: right;
+	.user_register{
+		.bg-danger{
+			color: red;
+		}
+		.form-control.input-lg{
+			height: 3rem;
+			width: 100%;
+			color: #111;
+		}
+		.button.fill.button-primary.button-block.button-lg{
+			height: 3rem;
+			width: 100%;
 		}
 	}
 }

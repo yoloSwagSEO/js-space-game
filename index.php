@@ -92,9 +92,8 @@ $title = '';
 
 //include header template
 require('meta/header.php');
+include_once('layout/top_bar.php');
 ?>
-
-
 <div class="container">
 	<div class="right_content">
 	    <div class="user_register">
