@@ -1,11 +1,22 @@
 /* GlobalStyles */
+$primary_text_color: #f4f4f4;
+$primary_input_text_color: #111;
+$primary_link_color: #13a3f4;
+
 html {
 	font-size: 16px;
 	background-color: #21252b;
-	color: #F4F4F4;
+	color: $primary_text_color;
 }
 body{
 	min-width: 320px;
+}
+a{
+	text-decoration: none;
+	color: $primary_text_color;
+	&:hover{
+		color: $primary_link_color;
+	}
 }
 .hidden {
 	display: none;

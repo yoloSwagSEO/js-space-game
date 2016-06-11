@@ -45,7 +45,7 @@ require('meta/header.php');
 	<div class="right_content">
 	    <div class="user_register">
 			<form role="form" method="post" action="" autocomplete="on">
-				<h2>Please Login</h2>
+				<h2>Login</h2>
 				<p><a href='./'>Back to home page</a></p>
 				<hr>
 

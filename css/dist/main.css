@@ -4,10 +4,14 @@
 html {
   font-size: 16px;
   background-color: #21252b;
-  color: #F4F4F4; }
 
 body {
   min-width: 320px; }
+
+a {
+  text-decoration: none;
+  a:hover {
+    color: #13a3f4; }
 
 .hidden {
   display: none; }
