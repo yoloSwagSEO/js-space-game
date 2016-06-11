@@ -2,6 +2,7 @@
 
 	// live
 	// $hostname  = "dd1816.kasserver.com";
+	// $hostport  = "";
 	// $database  = "d02260f9";
 	// $username  = "d02260f9";
 	// $password  = "JRv-Qp4-M3h-UxJ";
@@ -19,9 +20,9 @@
 	//$selected = mysqli_select_db($database,$dbhandle) or die("Could not select examples");
 
 	// define('DBHOST','dd1816.kasserver.com');
-	// define('DBUSER','d0206f83');
-	// define('DBPASS','smb3_pondering');
-	// define('DBNAME','d0206f83');
+	// define('DBUSER','d02260f9');
+	// define('DBPASS','JRv-Qp4-M3h-UxJ');
+	// define('DBNAME','d02260f9');
 	// define('DBPORT', '');
 
 	define('DBHOST', 'localhost');
