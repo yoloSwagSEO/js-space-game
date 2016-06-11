@@ -3,7 +3,7 @@
 	<?php include_once('meta/header.php'); ?>
 	<body>
 		<div class="content">
-			<h3>DB Buildings</h3>
+			<h3>Database Buildings</h3>
 			<div class="building_list" data-bind="foreach: SpaceGame.db_buildings">
 				<div class="building">
 					<span data-bind="text:id()" class="hidden"></span>
