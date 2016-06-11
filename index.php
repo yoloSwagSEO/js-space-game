@@ -67,7 +67,7 @@ if(isset($_POST['submit'])){
 				':email' => $_POST['email'],
 				':active' => $activasion
 			));
-			$id = $db->lastInsertId('memberID');
+			$id = $db->lastInsertId('id');
 
 			//send email
 			$to = $_POST['email'];

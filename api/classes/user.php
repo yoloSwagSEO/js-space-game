@@ -13,7 +13,7 @@ class User extends Password{
 	private function get_user_hash($username){
 
 		try {
-			$stmt = $this->_db->prepare('SELECT password FROM members WHERE username = :username AND active="Yes"');
+			$stmt = $this->_db->prepare('SELECT password FROM Users WHERE username = :username AND active="Yes"');
 			$stmt->execute(array('username' => $username));
 
 			$row = $stmt->fetch();
@@ -45,7 +45,7 @@ class User extends Password{
 	}
 
 	public function get_user_json($search_param, $username){
-		$query = "SELECT memberid as 'id', username as 'name' FROM members WHERE username LIKE :test AND username != :user_name;";
+		$query = "SELECT username as 'name' FROM Users WHERE username LIKE :test AND username != :user_name;";
 		$stmt = $this->_db->prepare($query);
  		$stmt->execute(array('test' => "$search_param%",
  							 'user_name' => "$username"));
@@ -190,7 +190,7 @@ class User extends Password{
 
 	public function checkUserExistence($userid){
 		try{
-			$query = "SELECT EXISTS(SELECT 1 FROM members WHERE username = :userid LIMIT 1)  as userExists;";
+			$query = "SELECT EXISTS(SELECT 1 FROM Users WHERE username = :userid LIMIT 1)  as userExists;";
 			$stmt = $this->_db->prepare($query);
 	 		$stmt->execute(array('userid' => $userid));
 			$row = $stmt->fetch();
@@ -204,13 +204,13 @@ class User extends Password{
 		//echo "test";
 		try{
 			//echo $user_name;
-			$query = "SELECT memberID FROM members WHERE username=:user_name";
+			$query = "SELECT id FROM Users WHERE username=:user_name";
 			$stmt = $this->_db->prepare($query);
 	 		$stmt->execute(array(':user_name' => $user_name));
 			$row = $stmt->fetch();
-			if(!empty($row['memberID'])){
+			if(!empty($row['id'])){
 				$exists = true;
-				$userid = $row['memberID'];
+				$userid = $row['id'];
 				//echo "userfound";
 				return $userid;
 			}else{
@@ -229,7 +229,7 @@ class User extends Password{
 		//echo "test";
 		try{
 			//echo $user_id;
-			$query = "SELECT username FROM members WHERE memberId=:user_id;";
+			$query = "SELECT username FROM Users WHERE id=:user_id;";
 			$stmt = $this->_db->prepare($query);
 			$stmt->execute(array(':user_id' => $user_id));
 			$row = $stmt->fetch();
