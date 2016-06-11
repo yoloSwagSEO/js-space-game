@@ -4,14 +4,40 @@
 html {
   font-size: 16px;
   background-color: #21252b;
-  color: #F4F4F4; }
 
 body {
   min-width: 320px; }
 
+a {
+  text-decoration: none;
+  a:hover {
+    color: #13a3f4; }
+
 .hidden {
   display: none; }
 
+/********************************************************
+************************ LOGIN ************************
+*****************-***************************************/
+.container {
+  max-width: 1024px;
+  margin: 0 auto; }
+  .container .right_content {
+    width: 40%;
+    float: right; }
+    .container .right_content .user_register .bg-danger {
+      color: red; }
+    .container .right_content .user_register .form-control.input-lg {
+      height: 3rem;
+      width: 100%;
+      color: #111; }
+    .container .right_content .user_register .button.fill.button-primary.button-block.button-lg {
+      height: 3rem;
+      width: 100%; }
+
+/********************************************************
+************************ GAME ************************
+********************************************************/
 /* Building Styles */
 .building_list {
   width: 100%;
