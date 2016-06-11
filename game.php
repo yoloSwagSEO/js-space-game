@@ -1,8 +1,13 @@
+<?php
+	require_once('api/db_connect.php');
+	require_once('api/classes/user.php');
+?>
 <!DOCTYPE html>
 <html data-bind="css: SpaceGame.apiStatus()">
 	<?php include_once('meta/header.php'); ?>
 	<body>
-		<div class="content">
+		<?php include_once('layout/top_bar.php'); ?>
+		<div class="container">
 			<h3>Database Buildings</h3>
 			<div class="building_list" data-bind="foreach: SpaceGame.db_buildings">
 				<div class="building">

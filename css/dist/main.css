@@ -4,36 +4,54 @@
 html {
   font-size: 16px;
   background-color: #21252b;
+  color: #f4f4f4; }
 
 body {
   min-width: 320px; }
 
 a {
   text-decoration: none;
+  color: #f4f4f4; }
   a:hover {
     color: #13a3f4; }
 
 .hidden {
   display: none; }
 
-/********************************************************
-************************ LOGIN ************************
-*****************-***************************************/
 .container {
   max-width: 1024px;
   margin: 0 auto; }
-  .container .right_content {
-    width: 40%;
+
+.top_bar {
+  background-color: #f1f1f1;
+  color: #111; }
+  .top_bar a {
+    text-decoration: none;
+    color: #111; }
+    .top_bar a:hover {
+      color: #13a3f4; }
+  .top_bar.loggedOut .user_bar.logout {
+    display: none; }
+  .top_bar.loggedIn .user_bar.login {
+    display: none; }
+  .top_bar .user_bar {
     float: right; }
-    .container .right_content .user_register .bg-danger {
-      color: red; }
-    .container .right_content .user_register .form-control.input-lg {
-      height: 3rem;
-      width: 100%;
-      color: #111; }
-    .container .right_content .user_register .button.fill.button-primary.button-block.button-lg {
-      height: 3rem;
-      width: 100%; }
+
+/********************************************************
+************************ LOGIN ************************
+*****************-***************************************/
+.right_content {
+  width: 40%;
+  float: right; }
+  .right_content .user_register .bg-danger {
+    color: red; }
+  .right_content .user_register .form-control.input-lg {
+    height: 3rem;
+    width: 100%;
+    color: #111; }
+  .right_content .user_register .button.fill.button-primary.button-block.button-lg {
+    height: 3rem;
+    width: 100%; }
 
 /********************************************************
 ************************ GAME ************************
