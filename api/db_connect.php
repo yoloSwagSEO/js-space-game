@@ -47,6 +47,6 @@
 		exit;
 	}
 
-	include('api/classes/user.php');
+	include('classes/user.php');
 	$user = new User($db);
 ?>

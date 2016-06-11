@@ -8,7 +8,7 @@ if( $user->is_logged_in() ){ header('Location: index.php'); }
 //check if the rememberme cookie is present
 if(isSet($_COOKIE['SILLY'])) {
 	if($user->get_remember_me()){
-		header('Location: eventboard.php');
+		header('Location: game.php');
 		exit;
 	}
 }
@@ -22,7 +22,7 @@ if(isset($_POST['submit'])){
 	if($username && $password){
 		if($user->login($username, $password, $rememberme)){
 			$_SESSION['username'] = $username;
-			header('Location: eventboard.php');
+			header('Location: game.php');
 			exit;
 		} else {
 			$error[] = 'Wrong username or password or your account has not been activated.';
