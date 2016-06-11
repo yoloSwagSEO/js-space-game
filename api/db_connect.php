@@ -46,4 +46,7 @@
 		echo '<p class="bg-danger">'.$e->getMessage().'</p>';
 		exit;
 	}
+
+	include('api/classes/user.php');
+	$user = new User($db);
 ?>

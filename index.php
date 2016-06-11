@@ -1,7 +1,5 @@
 <?php
 require('api/db_connect.php');
-include('api/classes/user.php');
-$user = new User($db);
 
 //if logged in redirect to Users page
 if( $user->is_logged_in() ){ header('Location: game.php'); }
