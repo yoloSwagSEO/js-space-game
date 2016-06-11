@@ -4,12 +4,14 @@
 html {
   font-size: 16px;
   background-color: #21252b;
+  color: #f4f4f4; }
 
 body {
   min-width: 320px; }
 
 a {
   text-decoration: none;
+  color: #f4f4f4; }
   a:hover {
     color: #13a3f4; }
 
