@@ -25,6 +25,9 @@ body {
   .alert p {
     padding: .33rem; }
 
+.container {
+  height: 100vh; }
+
 .menu_frame {
   background-color: #355D99;
   color: #f4f4f4;
@@ -128,6 +131,10 @@ body {
   color: #111; }
   .user_register .mdl-textfield, .user_login .mdl-textfield {
     margin-top: -20px; }
+
+@media only screen and (min-width: 601px) {
+  .user_register {
+    height: 100vh; } }
 
 .user_login {
   width: 40%;
