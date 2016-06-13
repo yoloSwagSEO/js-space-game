@@ -1,0 +1,78 @@
+/* Building Styles */
+.game_frame {
+	padding: .5rem;
+}
+.building_list{
+	.building {
+		background: #f1f1f1;
+		border: 1px solid #949494;
+		color: #111;
+		border-radius: 4px;
+		height: auto;
+		overflow: hidden;
+		table{
+			width: 100%;
+			padding: .22rem;
+			border-spacing: 0px;
+		}
+		.level{
+			min-width: 2rem;
+			font-size: 1.5rem;
+			font-weight: bold;
+			text-align: center;
+			border-right: 1px solid #afafaf;
+			&::before{
+				content: 'lvl';
+				color: #a5a5a5;
+				display: block;
+				font-size: .9rem;
+				font-weight: normal;
+				text-shadow: 1px 1px 0 #757575;
+				letter-spacing: .11rem;
+			}
+		}
+		.name {
+			display: block;
+			font-weight: bold;
+		}
+		.description {
+			display: block;
+		}
+		.td_info{
+			padding-left: .5rem;
+		}
+		.startBuilding{
+			display: block;
+			float: right;
+			font-size: 150%;
+			height: 2.5rem;
+			width: 2.5rem;
+			line-height: 2.5rem;
+			text-align: center;
+			color: #393939;
+			border: 1px solid #9c9c9c;
+			border-radius: 50%;
+			margin: .4rem;
+			cursor: pointer;
+			&:hover {
+				color: #cc1d1d;
+				border-color: #717171;
+			}
+		}
+		.remainingTime{
+			display: block;
+			float: right;
+			font-size: 90%;
+			font-weight: bold;
+			height: 2.5rem;
+			width: 2.5rem;
+			line-height: 2.5rem;
+			text-align: center;
+			color: #393939;
+			border: 1px solid #00ff00;
+			border-radius: 50%;
+			margin: .4rem;
+		}
+	}
+}
+/* END Building Styles */
