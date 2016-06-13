@@ -3,7 +3,7 @@
 require_once('api/db_connect.php');
 
 //check if already logged in move to home page
-if( $user->is_logged_in() ){ header('Location: index.php'); }
+if( $user->is_logged_in() ){ header('Location: game.php'); }
 
 //check if the rememberme cookie is present
 if(isSet($_COOKIE['SILLY'])) {
@@ -90,8 +90,9 @@ require('meta/header.php');
 					</div>
 				</div>
 				<div class="button-row">
-					<button  type="submit" name="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"  tabindex="5">
-						Login
+					<button type="submit" name="submit"  class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored">
+						<i class="fa fa-sign-in"></i>
+						<span class="btn-count">Login</span>
 					</button>
 					<input type="checkbox" id="remember_me" name="remember_me" <?php echo isset($_COOKIE['checkIT']) ? 'checked' : ''; ?> />
 						<label for="remember_me">Keep me logged in</label>

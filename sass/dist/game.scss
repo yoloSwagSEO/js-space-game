@@ -1,18 +1,14 @@
-
-
 /* Building Styles */
+.game_frame {
+	padding: .5rem;
+}
 .building_list{
-	width: 100%;
-	max-width: 400px;
-	margin: .5rem auto;
 	.building {
-		width: auto;
 		background: #f1f1f1;
 		border: 1px solid #949494;
 		color: #111;
 		border-radius: 4px;
 		height: auto;
-		margin: .5rem 0;
 		overflow: hidden;
 		table{
 			width: 100%;

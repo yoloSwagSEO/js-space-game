@@ -91,11 +91,21 @@ $title = '';
 
 //include header template
 require('meta/header.php');
-include_once('layout/top_bar.php');
 ?>
 <div class="container">
 	<div class="row">
 		<div class="user_register col offset-m8 m4 s12">
+			<div class="user_bar login">
+				<span class="info">Already a member?</span>
+				<span>
+					<a href="login.php">
+						<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored">
+							<i class="fa fa-sign-in"></i>
+							<span class="btn-count">Login</span>
+						</button>
+					</a>
+				</span>
+			</div>
 			<form role="form" method="post" action="" autocomplete="off">
 				<h2>Sign Up</h2>
 				<hr>

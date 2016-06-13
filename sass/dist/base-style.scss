@@ -10,6 +10,8 @@ $primary_light_bgcolor: #f4f4f4;
 $primary_dark_bgcolor: #21252b;
 //ELEMENT VALUES
 $base_border_radius: 4px;
+
+
 html {
 	font-size: 16px;
 	background-color: $primary_dark_bgcolor;
@@ -37,28 +39,45 @@ body {
 	}
 }
 
+.menu_frame {
+	background-color: #355D99;
+	color: $primary_light_text_color;
+	height: auto;
+	overflow: hidden;
+	.user_frame {
+		height: 8rem;
+		background-color: $primary_light_bgcolor;
+		color: $primary_dark_text_color;
+		text-align: center;
+		&.loggedOut {
+			.user_bar.logout {
+				display: none;
+			}
+		}
+		&.loggedIn {
+			.user_bar.login {
+				display: none;
+			}
+		}
+		.profile_frame {
+			padding-top: 1rem;
+			text-align: center;
+			height: 4rem;
+			.img {
+				height: 3rem;
+				width: 3rem;
+				border: 2px solid #0064B5;
+				border-radius: 50%;
+			}
+			.username {
+				font-weight: bold;
+			}
+		}
+	}
+}
 
-.top_bar {
-	background-color: #f1f1f1;
-	color: $top_text_color;
-	a {
-		text-decoration: none;
-		color: $top_text_color;
-		&:hover {
-			color: $primary_link_color_hover;
-		}
-	}
-	&.loggedOut {
-		.user_bar.logout {
-			display: none;
-		}
-	}
-	&.loggedIn {
-		.user_bar.login {
-			display: none;
-		}
-	}
-	.user_bar {
-		float: right;
+@media only screen and (min-width: 601px) {
+	.menu_frame {
+		height: 100vh;
 	}
 }
