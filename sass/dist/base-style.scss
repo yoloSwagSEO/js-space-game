@@ -1,164 +1,64 @@
 /* GlobalStyles */
-$primary_text_color: #f4f4f4;
-$primary_input_text_color: #111;
+// TEXT COLORS
+$primary_light_text_color: #f4f4f4;
+$primary_dark_text_color: #111;
 $primary_link_color_hover: #13a3f4;
 $top_text_color: #111;
 
+//COLORS
+$primary_light_bgcolor: #f4f4f4;
+$primary_dark_bgcolor: #21252b;
+//ELEMENT VALUES
+$base_border_radius: 4px;
 html {
 	font-size: 16px;
-	background-color: #21252b;
-	color: $primary_text_color;
+	background-color: $primary_dark_bgcolor;
+	color: $primary_light_text_color;
 }
-body{
+body {
 	min-width: 320px;
-}
-a{
-	text-decoration: none;
-	color: $primary_text_color;
-	&:hover{
-		color: $primary_link_color_hover;
-	}
 }
 .hidden {
 	display: none;
 }
-
-.container{
-	max-width: 1024px;
-	margin: 0 auto;
+.alert {
+	font-size: 90%;
+	border-radius: $base_border_radius;
+	&.error {
+		background-color: red;
+		border: 1px solid red;
+	}
+	&.success {
+		background-color: green;
+		border: 1px solid green;
+	}
+	p {
+		padding: .33rem;
+	}
 }
 
-.top_bar{
+
+.top_bar {
 	background-color: #f1f1f1;
 	color: $top_text_color;
-	a{
+	a {
 		text-decoration: none;
 		color: $top_text_color;
-		&:hover{
+		&:hover {
 			color: $primary_link_color_hover;
 		}
 	}
-	&.loggedOut{
-		.user_bar.logout{
+	&.loggedOut {
+		.user_bar.logout {
 			display: none;
 		}
 	}
-	&.loggedIn{
-		.user_bar.login{
+	&.loggedIn {
+		.user_bar.login {
 			display: none;
 		}
 	}
-	.user_bar{
+	.user_bar {
 		float: right;
 	}
 }
-
-
-/********************************************************
-************************ LOGIN ************************
-*****************-***************************************/
-
-.right_content{
-	width: 40%;
-	float: right;
-	.user_register{
-		.bg-danger{
-			color: red;
-		}
-		.form-control.input-lg{
-			height: 3rem;
-			width: 100%;
-			color: #111;
-		}
-		.button.fill.button-primary.button-block.button-lg{
-			height: 3rem;
-			width: 100%;
-		}
-	}
-}
-
-
-/********************************************************
-************************ GAME ************************
-********************************************************/
-
-/* Building Styles */
-.building_list{
-	width: 100%;
-	max-width: 400px;
-	margin: .5rem auto;
-	.building {
-		width: auto;
-		background: #f1f1f1;
-		border: 1px solid #949494;
-		color: #111;
-		border-radius: 4px;
-		height: auto;
-		margin: .5rem 0;
-		overflow: hidden;
-		table{
-			width: 100%;
-			padding: .22rem;
-			border-spacing: 0px;
-		}
-		.level{
-			min-width: 2rem;
-			font-size: 1.5rem;
-			font-weight: bold;
-			text-align: center;
-			border-right: 1px solid #afafaf;
-			&::before{
-				content: 'lvl';
-				color: #a5a5a5;
-				display: block;
-				font-size: .9rem;
-				font-weight: normal;
-				text-shadow: 1px 1px 0 #757575;
-				letter-spacing: .11rem;
-			}
-		}
-		.name {
-			display: block;
-			font-weight: bold;
-		}
-		.description {
-			display: block;
-		}
-		.td_info{
-			padding-left: .5rem;
-		}
-		.startBuilding{
-			display: block;
-			float: right;
-			font-size: 150%;
-			height: 2.5rem;
-			width: 2.5rem;
-			line-height: 2.5rem;
-			text-align: center;
-			color: #393939;
-			border: 1px solid #9c9c9c;
-			border-radius: 50%;
-			margin: .4rem;
-			cursor: pointer;
-			&:hover {
-				color: #cc1d1d;
-				border-color: #717171;
-			}
-		}
-		.remainingTime{
-			display: block;
-			float: right;
-			font-size: 90%;
-			font-weight: bold;
-			height: 2.5rem;
-			width: 2.5rem;
-			line-height: 2.5rem;
-			text-align: center;
-			color: #393939;
-			border: 1px solid #00ff00;
-			border-radius: 50%;
-			margin: .4rem;
-		}
-	}
-}
-/* END Building Styles */

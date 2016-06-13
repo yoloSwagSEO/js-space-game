@@ -3,11 +3,10 @@ require('api/db_connect.php');
 
 //if logged in redirect to Users page
 if( $user->is_logged_in() ){ header('Location: game.php'); }
-
+//very basic validation
 //if form has been submitted process it
 if(isset($_POST['submit'])){
 
-	//very basic validation
 	if(strlen($_POST['username']) < 3){
 		$error[] = 'Username is too short.';
 	} else {
@@ -34,7 +33,7 @@ if(isset($_POST['submit'])){
 
 	//email validation
 	if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-	    $error[] = 'Please enter a valid email address';
+			$error[] = 'Please enter a valid email address';
 	} else {
 		$stmt = $db->prepare('SELECT email FROM Users WHERE email = :email');
 		$stmt->execute(array(':email' => $_POST['email']));
@@ -80,7 +79,7 @@ if(isset($_POST['submit'])){
 
 		//else catch the exception and show the error.
 		} catch(PDOException $e) {
-		    $error[] = $e->getMessage();
+				$error[] = $e->getMessage();
 		}
 
 	}
@@ -95,51 +94,51 @@ require('meta/header.php');
 include_once('layout/top_bar.php');
 ?>
 <div class="container">
-	<div class="right_content">
-	    <div class="user_register">
+	<div class="row">
+		<div class="user_register col offset-m8 m4 s12">
 			<form role="form" method="post" action="" autocomplete="off">
 				<h2>Sign Up</h2>
 				<hr>
-				<?php
-				//check for any errors
-				if(isset($error)){
-					foreach($error as $error){
-						echo '<p class="bg-danger">'.$error.'</p>';
-					}
-				}
+						<?php
+						//check for any errors
+						if(isset($error)){
+							echo '<div class="alert error">';
+							foreach($error as $error){
+								echo '<p>'.$error.'</p>';
+							}
+							echo '</div>';
+						}
+						?>
 
+				<?php
 				//if action is joined show sucess
 				if(isset($_GET['action']) && $_GET['action'] == 'joined'){
-					echo "<p class='bg-success'>Registration successful, please check your email to activate your account.</p>";
+					echo "<p class='alert success'>Registration successful, please check your email to activate your account.</p>";
 				}
 				?>
-
-				<table class="user-form-table">
-					<tr>
-						<td colspan="2">
-							<input type="text" name="username" id="username" maxlength="35" class="form-control input-lg" placeholder="User Name" value="<?php if(isset($error)){ echo $_POST['username']; } ?>" tabindex="1">
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" value="<?php if(isset($error)){ echo $_POST['email']; } ?>" tabindex="2">
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="3">
-						</td>
-						<td>
-							<input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control input-lg" placeholder="Confirm Password" tabindex="4">
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<div class="button-row"><button type="submit" name="submit" value="Register" class="button fill button-primary button-block button-lg" tabindex="5">Register</button></div>
-						</td>
-					</tr>
-				</table>
-
+				<div class="row">
+					<div class="mdl-textfield mdl-js-textfield col s12">
+						<input class="mdl-textfield__input" type="text" id="username" name="username" placeholder="Username" maxlength="35" value="<?php if(isset($error)){ echo $_POST['username']; } ?>" tabindex="1">
+						<label class="mdl-textfield__label" for="username"> </label>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield col s12">
+						<input class="mdl-textfield__input" type="email" id="email" name="email" placeholder="Email" value="<?php if(isset($error)){ echo $_POST['email']; } ?>" tabindex="2">
+						<label class="mdl-textfield__label" for="email"></label>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield col s6">
+						<input class="mdl-textfield__input" type="password" id="password" name="password" placeholder="Password" value="<?php if(isset($error)){ echo $_POST['email']; } ?>" tabindex="3">
+						<label class="mdl-textfield__label" for="password"></label>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield col s6">
+						<input class="mdl-textfield__input" type="passwordConfirm" id="passwordConfirm" name="passwordConfirm" placeholder="Password Confirm" value="<?php if(isset($error)){ echo $_POST['email']; } ?>" tabindex="4">
+						<label class="mdl-textfield__label" for="passwordConfirm"></label>
+					</div>
+					<div class="button-row  col s6">
+						<button  type="submit" name="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"  tabindex="5">
+							Register
+						</button>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>

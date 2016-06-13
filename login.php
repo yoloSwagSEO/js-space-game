@@ -42,8 +42,8 @@ require('meta/header.php');
 
 
 <div class="container">
-	<div class="right_content">
-	    <div class="user_register">
+	<div class="">
+			<div class="user_login">
 			<form role="form" method="post" action="" autocomplete="on">
 				<h2>Login</h2>
 				<p><a href='./'>Back to home page</a></p>
@@ -76,26 +76,25 @@ require('meta/header.php');
 
 
 				?>
-				<table class="user-form-table">
-					<tr>
-						<td>
-							<input type="text" name="username" id="username" class="form-control input-lg" placeholder="User Name" value="<?php if(isset($error)){ echo $_POST['username']; } ?>" tabindex="1">
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="3">
-						</td>
-					</tr>
-				</table>
-				<div class="">
-					<a href='reset.php'>Forgot your Password?</a>
-				</div>
-				<hr>
 				<div class="row">
-					<div class="button-row"><button type="submit" name="submit" value="Login" class="button fill button-primary button-block button-lg" tabindex="5">Login</button></div>
+					<div class="mdl-textfield mdl-js-textfield col s6">
+						<input class="mdl-textfield__input" type="text" id="username" name="username" placeholder="Username" maxlength="35" value="<?php if(isset($error)){ echo $_POST['username']; } ?>" tabindex="1">
+						<label class="mdl-textfield__label" for="username"> </label>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield col s6">
+						<input class="mdl-textfield__input" type="password" id="password" name="password" placeholder="Password" value="<?php if(isset($error)){ echo $_POST['email']; } ?>" tabindex="3">
+						<label class="mdl-textfield__label" for="password"></label>
+					</div>
+					<div class="">
+						<a href='reset.php'>Forgot your Password?</a>
+					</div>
+				</div>
+				<div class="button-row">
+					<button  type="submit" name="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"  tabindex="5">
+						Login
+					</button>
 					<input type="checkbox" id="remember_me" name="remember_me" <?php echo isset($_COOKIE['checkIT']) ? 'checked' : ''; ?> />
-   					<label for="remember_me">Keep me logged in</label>
+						<label for="remember_me">Keep me logged in</label>
 				</div>
 			</form>
 		</div>
