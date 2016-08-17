@@ -49,9 +49,14 @@
 
 	include('classes/user.php');
 	$user = new User($db);
-	$userData = (object) array(
-		'loggedIn' => $_SESSION['loggedin'],
-		'userName' => $_SESSION['username'],
-		'userId' => $user->findIdbyName($_SESSION['username'])
-	);
+	if( $user->is_logged_in() ){
+		$userData = (object) array(
+			'loggedIn' => $_SESSION['loggedin'],
+			'userName' => $_SESSION['username'],
+			'userId' => $user->findIdbyName($_SESSION['username'])
+		);
+	}else{
+		$userData = null;
+	}
+	var_dump($userData);
 ?>
