@@ -12,7 +12,7 @@ $status = null;
 
 if($userBuildingId === '') {
 	//creat New User Building
-	$sql = "INSERT INTO userBuildings (userId, buildingId, upgradeStartTime, level) VALUES ('$userId', '$buildingId', '$timeStamp', '$level')";
+	$sql = "INSERT INTO userbuildings (userId, buildingId, upgradeStartTime, level) VALUES ('$userId', '$buildingId', '$timeStamp', '$level')";
 	// 			$result = $db->query( $sql );
 	try{
 		$result = $db->prepare($sql);
