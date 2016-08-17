@@ -60,5 +60,4 @@
 	}else{
 		$userData = null;
 	}
-	var_dump($userData);
 ?>
