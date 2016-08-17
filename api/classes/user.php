@@ -80,14 +80,14 @@ class User extends Password{
 			$timeNow = $now->getTimestamp();
 
 			// check to see if user is in table already:
-// 			$sql = "SELECT user_id FROM RememberMe WHERE user_id = '$username'";
+// 			$sql = "SELECT user_id FROM rememberme WHERE user_id = '$username'";
 
 // 			// connect to database:
 // 			//$db = new DBCon();
 
 // 			$result = $db->query( $sql );
 			try{
-				$result = $this->_db->prepare("SELECT user_id FROM RememberMe WHERE user_id = '$username'");
+				$result = $this->_db->prepare("SELECT user_id FROM rememberme WHERE user_id = '$username'");
 				$result->execute();
 				$row = $result->fetch(PDO::FETCH_ASSOC);
 
@@ -111,13 +111,13 @@ class User extends Password{
 			//$result->free_memory();
 
 			if ( $exists == true ) {
-				$sql = "UPDATE RememberMe SET
+				$sql = "UPDATE rememberme SET
 												user_id		= '$username',
 												user_token = '$token',
 												token_salt = '$randomNumber',
 												time			 = '$timeNow'";
 			}else{
-				$sql = "INSERT INTO RememberMe VALUES( '$username', '$token', '$randomNumber', '$timeNow' )";
+				$sql = "INSERT INTO rememberme VALUES( '$username', '$token', '$randomNumber', '$timeNow' )";
 			}
 // 			$result = $db->query( $sql );
 			try{
@@ -148,7 +148,7 @@ class User extends Password{
 					list ($mac, $username, $token) = explode(':', $cookie);
 					//echo $mac.' / '.$username.' / '.$token;
 					try{
-						$result = $this->_db->prepare("SELECT token_salt FROM RememberMe WHERE user_id = '$username' AND user_token = '$token'");
+						$result = $this->_db->prepare("SELECT token_salt FROM rememberme WHERE user_id = '$username' AND user_token = '$token'");
 						$result->execute();
 						$row = $result->fetch(PDO::FETCH_ASSOC);
 						//var_dump($result);
