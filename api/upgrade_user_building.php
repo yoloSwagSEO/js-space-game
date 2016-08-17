@@ -9,7 +9,7 @@ $error = null;
 $status = null;
 
 //upgrade User Building
-$sql = "UPDATE userbuildings SET upgradeStartTime='0',level=$level WHERE userId=$userId AND id=$userBuildingId;";
+$sql = "UPDATE userbuildings SET upgradeStartTime='0',level=$level WHERE userId='$userId' AND id='$userBuildingId';";
 // 			$result = $db->query( $sql );
 try{
 	$result = $db->prepare($sql);

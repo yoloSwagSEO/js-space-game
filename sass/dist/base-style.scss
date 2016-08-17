@@ -40,15 +40,13 @@ body {
 }
 
 .container {
-	height: 100vh;
-	overflow: hidden;
+	height: auto;
 }
 
 .menu_frame {
 	background-color: #355D99;
 	color: $primary_light_text_color;
 	height: auto;
-	overflow: hidden;
 	.user_frame {
 		height: 8rem;
 		background-color: $primary_light_bgcolor;
