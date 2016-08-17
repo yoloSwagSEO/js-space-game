@@ -35,7 +35,7 @@
 					<td rowspan="3" data-bind="text:level()" class="level"</td>
 					<td data-bind="text:name()" class="name td_info"></td>
 					<td rowspan="3">
-						<span data-bind="click: StartCounter, visible: !isRunning()" class="startBuilding">
+						<span data-bind="click: function(e,d){ StartCounter(true, 0); console.log('wtf!!!'); }, visible: !isRunning()" class="startBuilding">
 							<i class="fa fa-wrench" aria-hidden="true"></i>
 						</span>
 						<span data-bind="text:remainingTimeText() , visible: isRunning()" class="remainingTime"></span>
