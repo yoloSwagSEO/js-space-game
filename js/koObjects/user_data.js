@@ -78,9 +78,7 @@ function USER_Building(data, fromDb, startBuildingTime, userBuildingId, level) {
 		self.elapsedTime(elapsed);
 		self.isRunning(true);
 		self.timerId = window.setInterval(function(){
-			var rightNow = (new Date()).getTime();
-			var elapsed = parseInt((rightNow - self.upgradeStartTime()) / 1000);
-			self.elapsedTime(elapsed+1);
+			self.elapsedTime(self.elapsedTime()+1);
 			if(self.remainingTime() <= 0){
 				clearInterval(self.timerId);
 				self.isRunning(false);
