@@ -26,14 +26,12 @@ body {
     padding: .33rem; }
 
 .container {
-  height: 100vh;
-  overflow: hidden; }
+  height: auto; }
 
 .menu_frame {
   background-color: #355D99;
   color: #f4f4f4;
-  height: auto;
-  overflow: hidden; }
+  height: auto; }
   .menu_frame .user_frame {
     height: 8rem;
     background-color: #f4f4f4;
@@ -61,7 +59,9 @@ body {
 
 /* Building Styles */
 .game_frame {
-  padding: .5rem; }
+  padding: .5rem;
+  overflow-y: auto;
+  height: 100vh; }
 
 .building_list .building {
   background: #f1f1f1;
@@ -126,6 +126,11 @@ body {
     margin: .4rem; }
 
 /* END Building Styles */
+@media only screen and (max-width: 601px) {
+  .game_frame {
+    overflow-y: visible;
+    max-height: none; } }
+
 .user_register, .user_login {
   padding: 1rem;
   background: #f4f4f4;
