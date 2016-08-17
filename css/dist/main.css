@@ -73,7 +73,7 @@ body {
   .building_list .building table {
     width: 100%;
     padding: .22rem;
-    border-spacing: 0px; }
+    border-spacing: 1px; }
   .building_list .building .level {
     min-width: 2rem;
     font-size: 1.5rem;
