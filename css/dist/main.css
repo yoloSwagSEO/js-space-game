@@ -26,7 +26,8 @@ body {
     padding: .33rem; }
 
 .container {
-  height: 100vh; }
+  height: 100vh;
+  overflow: hidden; }
 
 .menu_frame {
   background-color: #355D99;

@@ -25,7 +25,26 @@ function DB_Building(data) {
 
 	self.startBuilding = function(data, e){
 		console.log('addNewUserBuilding', e, data);
-		SpaceGame.user_buildings.push(new USER_Building(data, false));
+		var startBuildingTime = (new Date()).getTime();
+		SpaceGame.apiStatus('fetch');
+		$.ajax({
+			url: 'api/add_edit_user_building.php',
+			data: {
+				'buildingid': data.id(),
+				'userbuildingid': '',
+				'level': '0',
+				'timestamp': startBuildingTime
+			},
+			cache: false
+		}).done(function(value) {
+			console.log(value);
+			var obj = JSON3.parse(value);
+			SpaceGame.user_buildings.push(new USER_Building(data, false, startBuildingTime, obj.userBuildingId, 0));
+			SpaceGame.apiStatus('done');
+		}).error(function(value) {
+			console.log("NEW AJAX ERROR!", value);
+		});
+
 	};
 }
 
