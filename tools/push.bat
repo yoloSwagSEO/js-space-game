@@ -25,6 +25,7 @@ else
 	echo "$(tput setaf 1)ok I get the monster back in its cage!"
 fi
 
+echo ""
 read -r -p "$(tput setaf 1)want to be rly dumb and push it to the real world? [y/N]: " response
 response=${response,,} # tolower
 if [[ $response =~ ^(no|n| ) ]] | [ -z $response ]; then
