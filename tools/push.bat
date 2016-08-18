@@ -5,7 +5,7 @@ git add -u && \
 git status
 read -r -p "It hard to revert a commit! [Y/n]" response
 response=${response,,} # tolower
-if [[ $response =~ ^(yes|y| ) ]]; then
+if [[ $response =~ ^(yes|y| ) ]] | [ -z $response ]; then
 	git commit -m "$desc" && \
 	git push
 fi
