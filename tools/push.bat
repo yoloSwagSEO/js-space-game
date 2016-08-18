@@ -29,10 +29,10 @@ read -r -p "$(tput setaf 1)want to be rly dumb and push it to the real world? [y
 response=${response,,} # tolower
 if [[ $response =~ ^(no|n| ) ]] | [ -z $response ]; then
 	echo ""
-	echo "$(tput setaf 3)ok smart, lets test it a bit first!"
+	echo "$(tput setaf 3)ok smart, lets test it a bit first! $(tput setaf 1)(commit is not live!)"
 else
 echo "$(tput setaf 2) "
 	git ftp push
 	echo ""
-	echo "$(tput setaf 2)the monster is now live... and is running straight to tokyo!"
+	echo "$(tput setaf 3)the monster is now live... and is running straight to tokyo! $(tput setaf 2)(commit is not live!)"
 fi
