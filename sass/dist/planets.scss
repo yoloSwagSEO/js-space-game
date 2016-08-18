@@ -54,33 +54,6 @@ $pluto-orb : 780px; $pluto-pl: 3px;
   box-sizing:border-box;
 }
 
-.description{
-  padding:30px;
-  position:absolute;
-  top:0;
-  left:0;
-  width:25%;
-  z-index:999;
-  p{
-    font-size:.9em;
-    & + p{
-      margin-top:20px;
-    }
-    &.author{
-      font-size:.7em;
-      .fa-heart{
-        color:#860014;
-      }
-    }
-  }
-}
-
-code{
-  color: #ae94c0;
-  font-family:Menlo, Monaco, Consolas, 'Courier New', monospace;
-  font-size:.9em;
-}
-
 .solar-syst{
   &:after{
     content:"";
