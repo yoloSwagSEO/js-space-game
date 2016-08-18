@@ -12,13 +12,14 @@ echo "$(tput setaf 3) "
 git add . && \
 git add -u && \
 git status
-read -r -p "$(tput setaf 1)sure you want to set this monster free? [Y/n]" response
+read -r -p "$(tput setaf 1)sure you want to set this monster free? [Y/n]: " response
 response=${response,,} # tolower
 if [[ $response =~ ^(yes|y| ) ]] | [ -z $response ]; then
 	echo "$(tput setaf 2) "
 	git commit -m "$desc" && \
 	git push
-	echo "the monster is free... lets hope you did it right this time!"
+	echo ""
+	echo "$(tput setaf 3)the monster is free... lets hope you did it right this time!"
 else
 	echo ""
 	echo "$(tput setaf 1)ok I get the monster back in its cage!"
