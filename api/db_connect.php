@@ -19,12 +19,14 @@
 	//select a database to work with
 	//$selected = mysqli_select_db($database,$dbhandle) or die("Could not select examples");
 
+	//live
 	// define('DBHOST','dd1816.kasserver.com');
 	// define('DBUSER','d02260f9');
 	// define('DBPASS','JRv-Qp4-M3h-UxJ');
 	// define('DBNAME','d02260f9');
 	// define('DBPORT', '');
 
+	// localhost
 	define('DBHOST', 'localhost');
 	define('DBUSER', 'root');
 	define('DBPASS', 'root');
@@ -49,9 +51,13 @@
 
 	include('classes/user.php');
 	$user = new User($db);
-	$userData = (object) array(
-		'loggedIn' => $_SESSION['loggedin'],
-		'userName' => $_SESSION['username'],
-		'userId' => $user->findIdbyName($_SESSION['username'])
-	);
+	if( $user->is_logged_in() ){
+		$userData = (object) array(
+			'loggedIn' => $_SESSION['loggedin'],
+			'userName' => $_SESSION['username'],
+			'userId' => $user->findIdbyName($_SESSION['username'])
+		);
+	}else{
+		$userData = null;
+	}
 ?>

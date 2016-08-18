@@ -17,7 +17,7 @@ if ($user->is_logged_in()) {
 	<div class="user_bar logout">
 		<span class="user_logout">
 			<div class="profile_frame">
-				<span><img class="img" src="http://macemash.com/images/FriFeb1209003303621307047116nexus2cee_iron_man_by_rapsag-d65d74d.jpg" alt="" /></span>
+				<span><img class="img" src="./imgs/avatar/sauroneye.jpg" alt="" /></span>
 				<span class="username"><?php echo $_SESSION['username']; ?></span>
 			</div>
 			<a href="logout.php">
