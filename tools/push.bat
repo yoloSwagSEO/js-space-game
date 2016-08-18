@@ -35,5 +35,5 @@ else
 echo "$(tput setaf 2) "
 	git ftp push
 	echo ""
-	echo "$(tput setaf 3)the monster is now live... and is running straight to tokyo! $(tput setaf 2)(commit is not live!)"
+	echo "$(tput setaf 3)the monster is now live... and is running straight to tokyo! $(tput setaf 2)(commit is now LIVE!)"
 fi
