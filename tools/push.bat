@@ -18,21 +18,22 @@ if [[ $response =~ ^(yes|y| ) ]] | [ -z $response ]; then
 	echo "$(tput setaf 2) "
 	git commit -m "$desc" && \
 	git push
-	echo ""
-	echo "$(tput setaf 3)the monster is free... lets hope you did it right this time!"
-  echo ""
-  read -r -p "$(tput setaf 1)want to be rly dumb and push it to the real world? [y/N]: " response
-  response=${response,,} # tolower
-  if [[ $response =~ ^(no|n| ) ]] | [ -z $response ]; then
-  	echo ""
-  	echo "$(tput setaf 3)ok smart, lets test it a bit first! $(tput setaf 1)(commit is not live!)"
-  else
-  echo "$(tput setaf 2) "
-  	git ftp push
-  	echo ""
-  	echo "$(tput setaf 3)the monster is now roaming free... and is running straight to tokyo! $(tput setaf 2)(commit is now LIVE!)"
-  fi
 else
 	echo ""
 	echo "$(tput setaf 1)ok I get the monster back in its cage!"
+fi
+
+echo ""
+echo "$(tput setaf 3)the monster is free... lets hope you did it right this time!"
+echo ""
+read -r -p "$(tput setaf 1)want to be rly dumb and push it to the real world? [y/N]: " response
+response=${response,,} # tolower
+if [[ $response =~ ^(no|n| ) ]] | [ -z $response ]; then
+	echo ""
+	echo "$(tput setaf 3)ok smart, lets test it a bit first! $(tput setaf 1)(commit is not live!)"
+else
+echo "$(tput setaf 2) "
+	git ftp push
+	echo ""
+	echo "$(tput setaf 3)the monster is now roaming free... and is running straight to tokyo! $(tput setaf 2)(commit is now LIVE!)"
 fi
