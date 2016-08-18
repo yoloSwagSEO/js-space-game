@@ -1,3 +1,5 @@
 api/db_connect.php
+js/koObjects/*
+js/*.*
 sass/*
 tools/*
