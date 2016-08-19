@@ -62,85 +62,39 @@ body {
 
 .building {
   width: 100%;
-  height: 85px;
-  background: white;
-  border: 2px solid #454545;
+  height: 150px;
+  background: #f4f4f4;
+  border: 2px solid #D1D1D1;
   border-radius: 4px;
-  position: relative;
-  float: left; }
-  .building .info_layer .left, .building .build_layer .left {
-    display: inline-block;
-    width: 70%;
-    height: 100%; }
-  .building .info_layer .right, .building .build_layer .right {
-    display: inline-block;
-    width: 30%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0; }
+  color: #111; }
   .building .info_layer {
-    background: white;
-    color: black;
-    height: 100%;
-    z-index: 0; }
-    .building .info_layer .left .name {
-      font-size: 1.1rem;
-      font-weight: bold; }
-    .building .info_layer .left .description {
-      display: block;
-      margin-top: .33rem; }
-    .building .info_layer .right .ress {
-      width: 100%; }
-      .building .info_layer .right .ress .kind {
-        font-weight: bold; }
-      .building .info_layer .right .ress .value {
-        float: right;
-        padding-right: .33rem;
-        font-size: 110%;
-        font-weight: bold;
-        color: green; }
+    height: 85px; }
   .building .build_layer {
-    background: rgba(15, 15, 15, 0.83);
-    color: white;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    z-index: -2; }
-    .building .build_layer .left .ress {
-      width: 100%; }
-      .building .build_layer .left .ress .kind {
-        font-weight: bold;
-        display: inline-block;
-        width: 30%;
-        padding-left: .33rem; }
-      .building .build_layer .left .ress .value {
-        padding-left: 2.33rem;
-        font-size: 1.1rem;
-        font-weight: bold;
-        color: red; }
-    .building .build_layer .right .startBuilding {
-      display: block;
-      font-size: 3rem;
-      width: 100%;
+    display: block;
+    position: relative;
+    height: 65px;
+    border-top: 1px solid #A1A1A1; }
+    .building .build_layer .left {
+      display: inline-block;
+      width: 50%;
+      height: 100%; }
+      .building .build_layer .left .costs {
+        display: none; }
+    .building .build_layer .right {
+      display: inline-block;
+      width: 50%;
       height: 100%;
-      text-align: center;
-      cursor: pointer; }
-      .building .build_layer .right .startBuilding i {
-        line-height: 65px; }
-      .building .build_layer .right .startBuilding .buildTime {
-        font-size: 1rem; }
-      .building .build_layer .right .startBuilding:hover i {
-        text-shadow: 0 0 10px #04ACFF;
-        color: #42EB53; }
-  .building:not(.running):hover .info_layer {
-    opacity: .3; }
-  .building:not(.running):hover .build_layer {
-    opacity: 1;
-    z-index: 2; }
+      float: right;
+      border-left: 1px solid #A1A1A1;
+      margin-left: -1px; }
+    .building .build_layer:hover .left .powers {
+      display: none; }
+    .building .build_layer:hover .left .costs {
+      display: block; }
+    .building .build_layer:hover .left:hover .powers {
+      display: block; }
+    .building .build_layer:hover .left:hover .costs {
+      display: none; }
 
 /* END Building Styles */
 /* Building Styles */

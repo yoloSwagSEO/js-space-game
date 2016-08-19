@@ -8,122 +8,57 @@
 
 .building {
 	width: 100%;
-	height: 85px;
-	background: white;
-	border: 2px solid #454545;
-	border-radius: 4px;
-	position: relative;
-	float: left;
-	
-	.info_layer, .build_layer {
-		.left {
-			display: inline-block;
-			width: 70%;
-			height: 100%;
-			
-		}
-		.right {
-			display: inline-block;
-			width: 30%;
-			height: 100%;
-			position: absolute;
-			top: 0;
-			right: 0;
-		}
-	}
+	height: 150px;
+	background: $primary_light_bgcolor;
+	border: 2px solid #D1D1D1;
+	border-radius: $base_border_radius;
+	color: $primary_dark_text_color;
 	
 	.info_layer {
-		background: white;
-		color: black;
-		height: 100%;
-		z-index: 0;
-		
-		.left{
-			.name {
-				font-size: 1.1rem;
-				font-weight: bold;
-			}
-			.description {
-				display: block;
-				margin-top: .33rem;
-			}
-		}
-		
-		.right {
-			.ress {
-				width: 100%;
-				.kind{
-					font-weight: bold;
-				}
-				.value {
-					float: right;
-					padding-right: .33rem;
-					font-size: 110%;
-					font-weight: bold;
-					color: green;
-				}
-			}
-		}
+		height: 85px;
 	}
 	
 	.build_layer {
-		background: rgba(15,15,15,.83);
-		color: white;
-		height: 100%;
-		width: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		opacity: 0;
-		z-index: -2;
+		display: block;
+		position: relative;
+		height: 65px;
+		border-top: 1px solid #A1A1A1;
 		
 		.left {
-			.ress {
-				width: 100%;
-				.kind{
-					font-weight: bold;
-					display: inline-block;
-					width: 30%;
-					padding-left: .33rem;
-				}
-				.value {
-					padding-left: 2.33rem;
-					font-size: 1.1rem;
-					font-weight: bold;
-					color: red;
-				}
+			display: inline-block;
+			width: 50%;
+			height: 100%;
+			
+			.costs {
+				display: none;
 			}
 		}
+		
 		.right {
-			.startBuilding {
-				display: block;
-				font-size: 3rem;
-				width: 100%;
-				height: 100%;
-				text-align: center;
-				cursor: pointer;
-				i {
-					line-height: 65px;
+			display: inline-block;
+			width: 50%;
+			height: 100%;
+			float: right;
+			border-left: 1px solid #A1A1A1;
+			margin-left: -1px;
+		}
+		&:hover {
+			.left {
+				.powers {
+					display: none;
 				}
-				.buildTime {
-					font-size: 1rem;
+				.costs {
+					display: block;
 				}
-				&:hover{
-					i {
-						text-shadow: 0 0 10px #04ACFF;
-						color: #42EB53;
+				&:hover {
+					.powers {
+						display: block;
+					}
+					.costs {
+						display: none;
 					}
 				}
 			}
-		}
-	}
-	&:not(.running):hover {
-		.info_layer {
-			opacity: .3;
-		}
-		.build_layer {
-			opacity: 1;
-			z-index: 2;
 		}
 	}
 }
