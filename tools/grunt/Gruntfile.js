@@ -43,7 +43,7 @@ module.exports = function(grunt) {
 	        sourceMapName : 'sourceMap.map'
 	      },
 	      src : '../../js/**/*.js',
-	      dest : '../../js/dist/composite.all.min.js'
+	      dest : '../../jslibraries/dist/composite.all.min.js'
 	    }
 	  }
 	});
