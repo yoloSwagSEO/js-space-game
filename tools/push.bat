@@ -31,7 +31,7 @@ if [[ $response =~ ^(yes|y| ) ]] | [ -z $response ]; then
 	echo "$(tput setaf 3)the monster is free... lets hope you did it right this time!"
 	echo ""
 	read -r -p "$(tput setaf 1)want to be rly dumb and push it to the real world? [y/N]: " response2
-	response2=${response2,,} # tolower
+	response2=${response2,,}  # tolower
 	if [[ $response2 =~ ^(no|n| ) ]] | [ -z $response2 ]; then
 		echo ""
 		echo "$(tput setaf 3)ok smart, lets test it a bit first! $(tput setaf 1)(commit is not live!)"
