@@ -28,18 +28,30 @@ module.exports = function(grunt) {
 			}
 		},
 		watch: {
-      source: {
-        files: ['../../sass/dist/**/*.scss'],
-        tasks: ['sass_globbing','sass', 'autoprefixer'],
-        options: {
-          livereload: false // needed to run LiveReload
-        }
-      }
-    }
+			source: {
+				files: ['../../sass/dist/**/*.scss'],
+				tasks: ['sass_globbing','sass', 'autoprefixer'],
+				options: {
+					livereload: false // needed to run LiveReload
+				}
+			}
+		},
+		uglify: {
+	    all_src : {
+	      options : {
+	        sourceMap : false,
+	        sourceMapName : 'sourceMap.map'
+	      },
+	      src : '../../js/**/*.js',
+	      dest : '../../jslibraries/dist/composite.all.min.js'
+	    }
+	  }
 	});
 	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-sass-globbing');
 	grunt.loadNpmTasks('grunt-autoprefixer');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.registerTask('jscomp', ['uglify']);
 	grunt.registerTask('default',['watch']);
 };
