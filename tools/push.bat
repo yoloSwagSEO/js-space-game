@@ -10,6 +10,7 @@ while read -p "$(tput setaf 3)please give your creation a name: " desc; do
 done
 echo "$(tput setaf 2) "
 path=$(dirname $(readlink -f $0))"/grunt"
+echo $path
 cd $path
 grunt jscomp
 grunt sasscomp

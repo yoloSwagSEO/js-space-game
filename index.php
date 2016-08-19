@@ -140,7 +140,7 @@ require('meta/header.php');
 						<label class="mdl-textfield__label" for="password"></label>
 					</div>
 					<div class="mdl-textfield mdl-js-textfield col s6">
-						<input class="mdl-textfield__input" type="passwordConfirm" id="passwordConfirm" name="passwordConfirm" placeholder="Password Confirm" value="<?php if(isset($error)){ echo $_POST['email']; } ?>" tabindex="4">
+						<input class="mdl-textfield__input" type="password" id="passwordConfirm" name="passwordConfirm" placeholder="Password Confirm" value="<?php if(isset($error)){ echo $_POST['email']; } ?>" tabindex="4">
 						<label class="mdl-textfield__label" for="passwordConfirm"></label>
 					</div>
 					<div class="button-row  col s6">
