@@ -1,7 +1,7 @@
-/* GlobalStyles */
 @import url(../normalize.css);
 @import url(../material.min.css);
 @import url(../font-awesome.min.css);
+/* GlobalStyles */
 html {
   font-size: 16px;
   background-color: #21252b;
@@ -57,75 +57,98 @@ body {
   .menu_frame {
     height: 100vh; } }
 
+.building_frame {
+  padding: .33rem; }
+
+.building {
+  width: 100%;
+  height: 85px;
+  background: white;
+  border: 2px solid #454545;
+  border-radius: 4px;
+  position: relative;
+  float: left; }
+  .building .info_layer .left, .building .build_layer .left {
+    display: inline-block;
+    width: 70%;
+    height: 100%; }
+  .building .info_layer .right, .building .build_layer .right {
+    display: inline-block;
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0; }
+  .building .info_layer {
+    background: white;
+    color: black;
+    height: 100%;
+    z-index: 0; }
+    .building .info_layer .left .name {
+      font-size: 1.1rem;
+      font-weight: bold; }
+    .building .info_layer .left .description {
+      display: block;
+      margin-top: .33rem; }
+    .building .info_layer .right .ress {
+      width: 100%; }
+      .building .info_layer .right .ress .kind {
+        font-weight: bold; }
+      .building .info_layer .right .ress .value {
+        float: right;
+        padding-right: .33rem;
+        font-size: 110%;
+        font-weight: bold;
+        color: green; }
+  .building .build_layer {
+    background: rgba(15, 15, 15, 0.83);
+    color: white;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -2; }
+    .building .build_layer .left .ress {
+      width: 100%; }
+      .building .build_layer .left .ress .kind {
+        font-weight: bold;
+        display: inline-block;
+        width: 30%;
+        padding-left: .33rem; }
+      .building .build_layer .left .ress .value {
+        padding-left: 2.33rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: red; }
+    .building .build_layer .right .startBuilding {
+      display: block;
+      font-size: 3rem;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      cursor: pointer; }
+      .building .build_layer .right .startBuilding i {
+        line-height: 65px; }
+      .building .build_layer .right .startBuilding .buildTime {
+        font-size: 1rem; }
+      .building .build_layer .right .startBuilding:hover i {
+        text-shadow: 0 0 10px #04ACFF;
+        color: #42EB53; }
+  .building:not(.running):hover .info_layer {
+    opacity: .3; }
+  .building:not(.running):hover .build_layer {
+    opacity: 1;
+    z-index: 2; }
+
+/* END Building Styles */
 /* Building Styles */
 .game_frame {
   padding: .5rem;
   overflow-y: auto;
   height: 100vh; }
 
-.building_list .building {
-  background: #f1f1f1;
-  border: 1px solid #949494;
-  color: #111;
-  border-radius: 4px;
-  height: auto;
-  overflow: hidden; }
-  .building_list .building table {
-    width: 100%;
-    padding: .22rem;
-    border-spacing: 0px; }
-  .building_list .building .level {
-    min-width: 2rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    border-right: 1px solid #afafaf; }
-    .building_list .building .level::before {
-      content: 'lvl';
-      color: #a5a5a5;
-      display: block;
-      font-size: .9rem;
-      font-weight: normal;
-      text-shadow: 1px 1px 0 #757575;
-      letter-spacing: .11rem; }
-  .building_list .building .name {
-    display: block;
-    font-weight: bold; }
-  .building_list .building .description {
-    display: block; }
-  .building_list .building .td_info {
-    padding-left: .5rem; }
-  .building_list .building .startBuilding {
-    display: block;
-    float: right;
-    font-size: 150%;
-    height: 2.5rem;
-    width: 2.5rem;
-    line-height: 2.5rem;
-    text-align: center;
-    color: #393939;
-    border: 1px solid #9c9c9c;
-    border-radius: 50%;
-    margin: .4rem;
-    cursor: pointer; }
-    .building_list .building .startBuilding:hover {
-      color: #cc1d1d;
-      border-color: #717171; }
-  .building_list .building .remainingTime {
-    display: block;
-    float: right;
-    font-size: 90%;
-    font-weight: bold;
-    height: 2.5rem;
-    width: 2.5rem;
-    line-height: 2.5rem;
-    text-align: center;
-    color: #393939;
-    border: 1px solid #00ff00;
-    border-radius: 50%;
-    margin: .4rem; }
-
-/* END Building Styles */
 @media only screen and (max-width: 601px) {
   .game_frame {
     overflow-y: visible;

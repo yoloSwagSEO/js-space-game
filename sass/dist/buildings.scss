@@ -1,0 +1,130 @@
+.building_list{
+
+}
+
+.building_frame {
+	padding: .33rem;
+}
+
+.building {
+	width: 100%;
+	height: 85px;
+	background: white;
+	border: 2px solid #454545;
+	border-radius: 4px;
+	position: relative;
+	float: left;
+	
+	.info_layer, .build_layer {
+		.left {
+			display: inline-block;
+			width: 70%;
+			height: 100%;
+			
+		}
+		.right {
+			display: inline-block;
+			width: 30%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
+	
+	.info_layer {
+		background: white;
+		color: black;
+		height: 100%;
+		z-index: 0;
+		
+		.left{
+			.name {
+				font-size: 1.1rem;
+				font-weight: bold;
+			}
+			.description {
+				display: block;
+				margin-top: .33rem;
+			}
+		}
+		
+		.right {
+			.ress {
+				width: 100%;
+				.kind{
+					font-weight: bold;
+				}
+				.value {
+					float: right;
+					padding-right: .33rem;
+					font-size: 110%;
+					font-weight: bold;
+					color: green;
+				}
+			}
+		}
+	}
+	
+	.build_layer {
+		background: rgba(15,15,15,.83);
+		color: white;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		z-index: -2;
+		
+		.left {
+			.ress {
+				width: 100%;
+				.kind{
+					font-weight: bold;
+					display: inline-block;
+					width: 30%;
+					padding-left: .33rem;
+				}
+				.value {
+					padding-left: 2.33rem;
+					font-size: 1.1rem;
+					font-weight: bold;
+					color: red;
+				}
+			}
+		}
+		.right {
+			.startBuilding {
+				display: block;
+				font-size: 3rem;
+				width: 100%;
+				height: 100%;
+				text-align: center;
+				cursor: pointer;
+				i {
+					line-height: 65px;
+				}
+				.buildTime {
+					font-size: 1rem;
+				}
+				&:hover{
+					i {
+						text-shadow: 0 0 10px #04ACFF;
+						color: #42EB53;
+					}
+				}
+			}
+		}
+	}
+	&:not(.running):hover {
+		.info_layer {
+			opacity: .3;
+		}
+		.build_layer {
+			opacity: 1;
+			z-index: 2;
+		}
+	}
+}
+/* END Building Styles */

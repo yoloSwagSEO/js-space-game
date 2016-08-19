@@ -19,13 +19,13 @@ SpaceGame = function(){
 		}).done(function(data) {
 			//console.log(data);
 			var obj = JSON3.parse(data);
+			$.each(obj.resources, function(index, value) {
+				SpaceGame.db_resources.push(new DB_Resource(value));
+				console.log(index, value);
+			});
 			SpaceGame.db_buildings.removeAll();
 			$.each(obj.db_buildings, function(index, value) {
 				SpaceGame.db_buildings.push(new DB_Building(value));
-				console.log(index, value);
-			});
-			$.each(obj.resources, function(index, value) {
-				SpaceGame.db_resources.push(new DB_Resource(value));
 				console.log(index, value);
 			});
 			SpaceGame.load_user_buildings();
@@ -55,11 +55,11 @@ SpaceGame = function(){
 		});
 	};
 
-	SpaceGame.calculat_build_time = function(buildTime, multiplier, level){
+	SpaceGame.multiplyValues = function(value, multiplier, level){
 		level++;
-		var time = Math.floor((buildTime*level)+Math.pow(buildTime, level/multiplier));
-		console.log('calc', time);
-		return time;
+		var result = Math.floor((value*level)+Math.pow(value, level/multiplier));
+		console.log('calc', result);
+		return result;
 	};
 
 	SpaceGame.buildTimeString = function(timeVal){

@@ -14,20 +14,14 @@ function USER_Building(data, fromDb, startBuildingTime, userBuildingId, level) {
 	self.buildTimeMultiplier = ko.observable(data.buildTimeMultiplier());
 	self.powerMultiplier = ko.observable(data.powerMultiplier());
 	self.resourceMultiplier = ko.observable(data.resourceMultiplier());
-	self.powers = ko.observableArray();
-	self.resources = ko.observableArray();
-	$.each(data.powers(), function(index, value) {
-		self.powers.push(new DB_BuildingResource(value));
-	});
-	$.each(data.resources(), function(index, value) {
-		self.resources.push(new DB_BuildingResource(value));
-	});
+	self.powers = ko.observableArray(data.powers());
+	self.resources = ko.observableArray(data.resources());
 	self.realBuildTime = ko.computed(function() {
-		var time = SpaceGame.calculat_build_time(self.buildTime(), self.buildTimeMultiplier(), self.level());
+		var time = SpaceGame.multiplyValues(self.buildTime(), self.buildTimeMultiplier(), self.level());
 		return time;
 	});
 	self.buildTimeText = ko.computed(function() {
-		return 'upgrade time: ' + SpaceGame.buildTimeString(self.realBuildTime());
+		return SpaceGame.buildTimeString(self.realBuildTime());
 	});
 	self.upgradeStartTime = ko.observable(parseInt(startBuildingTime));
 
