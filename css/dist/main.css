@@ -137,8 +137,8 @@ body {
         padding: 0px;
         border: 5px dashed #13a3f4;
         border-radius: 100%;
-        -webkit-animation: loading 2s 0.3s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
-                animation: loading 2s 0.3s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite; }
+        -webkit-animation: loading 2s 0s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
+                animation: loading 2s 0s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite; }
     .building .build_layer:not(.running):hover .left .powers {
       display: none; }
     .building .build_layer:not(.running):hover .left .costs {
