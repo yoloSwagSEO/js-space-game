@@ -9,9 +9,10 @@ while read -p "$(tput setaf 3)please give your creation a name: " desc; do
 		 fi
 done
 echo "$(tput setaf 2) "
-test=$(dirname $(readlink -f $0))"/grunt"
-cd $test
+path=$(dirname $(readlink -f $0))"/grunt"
+cd $path
 grunt jscomp
+grunt sasscomp
 cd ..
 cd ..
 echo "$(tput setaf 3) "

@@ -53,5 +53,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.registerTask('jscomp', ['uglify']);
+	grunt.registerTask('sasscomp', ['sass_globbing','sass', 'autoprefixer']);
 	grunt.registerTask('default',['watch']);
 };
