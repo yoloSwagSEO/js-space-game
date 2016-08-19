@@ -22,9 +22,9 @@
 						</span>
 					</span>
 					<span class="right">
-						<span data-bind="click: startBuilding" class="startBuilding">
-							<i class="fa fa-gavel" aria-hidden="true"></i>
-							<div data-bind="text:buildTimeText()" class="buildTime"></div>
+						<span class="action startBuilding" data-bind="click: startBuilding">
+							<i class="icon fa fa-gavel" aria-hidden="true"></i>
+							<div class="buildTime" data-bind="text:buildTimeText()"></div>
 						</span>
 					</span>
 				</div>
@@ -35,13 +35,14 @@
 	<h3>USER Buildings</h3>
 	<div class="building_list row" data-bind="foreach: SpaceGame.user_buildings">
 		<div class="building_frame col s12 m6 l4">
-			<div class="building">
+			<div class="building" data-bind="css: {running: isRunning()}">
 				<span data-bind="text:id()" class="hidden"></span>
-				<div class="info_layer" data-bind="attr: { style: progressWidth }">
+				<div class="info_layer">
 						<div data-bind="text:name()" class="name"></div>
 						<div data-bind="text:description()" class="description"></div>
+						<div class="progressbar" data-bind="attr: { style: progressWidth }"></div>
 				</div>
-				<div class="build_layer">
+				<div class="build_layer" data-bind="css: {running: isRunning()}">
 					<span class="left">
 						<span class="powers">
 							<div class="ress"><span class="kind level">Level</span><span class="value" data-bind="text:level()"></span></div>
@@ -56,11 +57,14 @@
 						</span>
 					</span>
 					<span class="right">
-						<span data-bind="click: function(e,d){ StartCounter(true, 0); console.log('wtf!!!'); }, visible: !isRunning()" class="startBuilding">
-							<i class="fa fa-wrench" aria-hidden="true"></i>
-							<span class="value"data-bind="text:buildTimeText()" class="buildTime"></span>
+						<span class="action startBuilding" data-bind="click: function(e,d){ StartCounter(true, 0); console.log('wtf!!!'); }, visible: !isRunning()">
+							<i class="icon fa fa-wrench" aria-hidden="true"></i>
+							<span class="buildTime" data-bind="text:buildTimeText()"></span>
 						</span>
-						<div data-bind="text:remainingTimeText() , visible: isRunning()" class="buildTime"></div>
+						<div class="action loading" data-bind="visible: isRunning()">
+								<div class="icon ring"></div>
+								<div class="buildTime" data-bind="text:remainingTimeText()"></div>
+						</div>
 					</span>
 				</div>
 			</div>

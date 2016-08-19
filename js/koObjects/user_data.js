@@ -41,9 +41,9 @@ function USER_Building(data, fromDb, startBuildingTime, userBuildingId, level) {
 	self.progressWidth = ko.computed(function() {
 		var progress = ((self.elapsedTime() * 100) / self.initialTime()).toFixed(0);
 		var progressStr = self.isRunning() ?
-				"background: -moz-linear-gradient(left,  #d0d0d0 0%, #d0d0d0 " +parseInt(progress)+"%, rgba(255,255,255, 0.45) "+(parseInt(progress)+1)+"%, rgba(255,255,255, 0.45) 100%);"+
-				"background: -webkit-linear-gradient(left,  #d0d0d0 0%, #d0d0d0 " +parseInt(progress)+"%, rgba(255,255,255, 0.45) "+(parseInt(progress)+1)+"%, rgba(255,255,255, 0.45) 100%);"+
-				"background: linear-gradient(to right,  #d0d0d0 0%, #d0d0d0 " +parseInt(progress)+"%, rgba(255,255,255, 0.45) "+(parseInt(progress)+1)+"%, rgba(255,255,255, 0.45) 100%);"
+				"background: -moz-linear-gradient(left,  #01b623 0%, #01b623 " +parseInt(progress)+"%, rgba(255,255,255, 0) "+(parseInt(progress)+1)+"%, rgba(255,255,255, 0) 100%);"+
+				"background: -webkit-linear-gradient(left,  #01b623 0%, #01b623 " +parseInt(progress)+"%, rgba(255,255,255, 0) "+(parseInt(progress)+1)+"%, rgba(255,255,255, 0) 100%);"+
+				"background: linear-gradient(to right,  #01b623 0%, #01b623 " +parseInt(progress)+"%, rgba(255,255,255, 0) "+(parseInt(progress)+1)+"%, rgba(255,255,255, 0) 100%);"
 				: "";
 		return progressStr;
 	});

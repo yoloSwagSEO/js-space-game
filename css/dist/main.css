@@ -26,6 +26,9 @@ body {
     padding: .33rem; }
 
 .container {
+  margin: 0 auto;
+  max-width: 1880px;
+  width: 100%;
   height: auto; }
 
 .menu_frame {
@@ -62,13 +65,27 @@ body {
 
 .building {
   width: 100%;
-  height: 150px;
+  height: auto;
   background: #f4f4f4;
   border: 2px solid #D1D1D1;
   border-radius: 4px;
   color: #111; }
   .building .info_layer {
-    height: 85px; }
+    position: relative;
+    height: auto;
+    min-height: 85px; }
+    .building .info_layer .name {
+      padding: .33rem;
+      font-size: 1.3rem;
+      font-weight: bold; }
+    .building .info_layer .description {
+      padding: 0 .33rem; }
+    .building .info_layer .progressbar {
+      display: block;
+      height: 3px;
+      width: 100%;
+      position: absolute;
+      bottom: 0; }
   .building .build_layer {
     display: block;
     position: relative;
@@ -78,8 +95,20 @@ body {
       display: inline-block;
       width: 50%;
       height: 100%; }
+      .building .build_layer .left .powers, .building .build_layer .left .costs {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        padding: .22rem .33rem; }
+        .building .build_layer .left .powers .kind, .building .build_layer .left .costs .kind {
+          display: inline-block;
+          width: 50%; }
+        .building .build_layer .left .powers .value, .building .build_layer .left .costs .value {
+          color: green; }
       .building .build_layer .left .costs {
         display: none; }
+        .building .build_layer .left .costs .value {
+          color: red; }
     .building .build_layer .right {
       display: inline-block;
       width: 50%;
@@ -87,14 +116,63 @@ body {
       float: right;
       border-left: 1px solid #A1A1A1;
       margin-left: -1px; }
-    .building .build_layer:hover .left .powers {
+      .building .build_layer .right .action {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding-top: .5rem; }
+        .building .build_layer .right .action .icon {
+          display: block;
+          width: 100%;
+          font-size: 2rem;
+          text-align: center; }
+        .building .build_layer .right .action .buildTime {
+          display: block;
+          width: 100%;
+          text-align: center; }
+      .building .build_layer .right .loading .ring {
+        width: 20px;
+        height: 20px;
+        margin: 0 auto;
+        padding: 0px;
+        border: 5px dashed #13a3f4;
+        border-radius: 100%;
+        -webkit-animation: loading 2s 0.3s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
+                animation: loading 2s 0.3s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite; }
+    .building .build_layer:not(.running):hover .left .powers {
       display: none; }
-    .building .build_layer:hover .left .costs {
-      display: block; }
-    .building .build_layer:hover .left:hover .powers {
-      display: block; }
-    .building .build_layer:hover .left:hover .costs {
+    .building .build_layer:not(.running):hover .left .costs {
+      display: inline-block; }
+    .building .build_layer:not(.running):hover .left:hover .powers {
+      display: inline-block; }
+    .building .build_layer:not(.running):hover .left:hover .costs {
       display: none; }
+    .building .build_layer:not(.running):hover .right:hover {
+      background: #dedede;
+      color: #252525;
+      cursor: pointer; }
+
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  50% {
+    -webkit-transform: rotate(290deg);
+            transform: rotate(290deg); }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); } }
+
+@keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  50% {
+    -webkit-transform: rotate(290deg);
+            transform: rotate(290deg); }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); } }
 
 /* END Building Styles */
 /* Building Styles */
