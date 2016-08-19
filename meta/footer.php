@@ -10,6 +10,6 @@
 	<script type="text/javascript" src="js/koObjects/user_data.js"></script>
 <?php }else{ ?>
 	<!-- MINIFIED -->
-	<script type="text/javascript" src="js/dist/composite.all.min.js"></script>
+	<script type="text/javascript" src="jslibraries/dist/composite.all.min.js"></script>
 <?php } ?>
 </footer>
