@@ -252,26 +252,26 @@ $pluto-orb : 780px; $pluto-pl: 3px;
   }
 }
 
-.asteroids-belt{
-  opacity:.7;
-  border-color: transparent !important;
-  height: $asteroids-belt-orb;
-  width: $asteroids-belt-orb;
-  margin-top: -$asteroids-belt-orb / 2;
-  margin-left: -$asteroids-belt-orb / 2;
-  animation: orb revolution(2191) linear infinite;
-  overflow:hidden;
-  &:before{
-    top:50%;
-    height:$asteroids-belt-pl;
-    width:$asteroids-belt-pl;
-    margin-left: -$asteroids-belt-pl / 2;
-    margin-top: -$asteroids-belt-pl / 2;
-    background: transparent;
-    border-radius:140px !important;
-    box-shadow: stars(390, 290, -290/2, -104);
-  }
-}
+// .asteroids-belt{
+//   opacity:.7;
+//   border-color: transparent !important;
+//   height: $asteroids-belt-orb;
+//   width: $asteroids-belt-orb;
+//   margin-top: -$asteroids-belt-orb / 2;
+//   margin-left: -$asteroids-belt-orb / 2;
+//   animation: orb revolution(2191) linear infinite;
+//   overflow:hidden;
+//   &:before{
+//     top:50%;
+//     height:$asteroids-belt-pl;
+//     width:$asteroids-belt-pl;
+//     margin-left: -$asteroids-belt-pl / 2;
+//     margin-top: -$asteroids-belt-pl / 2;
+//     background: transparent;
+//     border-radius:140px !important;
+//     box-shadow: stars(390, 290, -290/2, -104);
+//   }
+// }
 
 .pluto{
   height: $pluto-orb;
