@@ -1,6 +1,6 @@
 <div class="container">
-	<h3>Database Buildings</h3>
-	<div class="building_list row" data-bind="foreach: SpaceGame.db_buildings">
+	<h4>Buildings</h4>
+	<div class="from_db building_list row" data-bind="foreach: SpaceGame.db_buildings">
 		<div class="building_frame col s12 m6 l4">
 			<div class="building">
 				<span data-bind="text:id()" class="hidden"></span>
@@ -32,8 +32,8 @@
 		</div>
 	</div>
 	<!-- User Buildings -->
-	<h3>USER Buildings</h3>
-	<div class="building_list row" data-bind="foreach: SpaceGame.user_buildings">
+	<h4>Active Buildings</h4>
+	<div class="from_user building_list row" data-bind="foreach: SpaceGame.user_buildings">
 		<div class="building_frame col s12 m6 l4">
 			<div class="building" data-bind="css: {running: isRunning()}">
 				<span data-bind="text:id()" class="hidden"></span>
@@ -57,7 +57,7 @@
 						</span>
 					</span>
 					<span class="right">
-						<span class="action startBuilding" data-bind="click: function(e,d){ StartCounter(true, 0); console.log('wtf!!!'); }, visible: !isRunning()">
+						<span class="action startBuilding" data-bind="click: function(){ StartCounter(true, 0); console.log('wtf!!!'); }, visible: !isRunning()">
 							<i class="icon fa fa-wrench" aria-hidden="true"></i>
 							<span class="buildTime" data-bind="text:buildTimeText()"></span>
 						</span>
@@ -69,5 +69,8 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<h4>Building in progress</h4>
+	<div class="in_progress building_list row">
 	</div>
 </div>

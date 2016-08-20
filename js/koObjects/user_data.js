@@ -1,9 +1,9 @@
 function USER_Building(data, fromDb, startBuildingTime, userBuildingId, level) {
 	var self = this;
 	if (fromDb) { // init from DB
-		console.log('USER_Building fromDb');
+		// console.log('USER_Building fromDb');
 	} else { // init from knockoutObject
-		console.log('USER_Building from knockoutObject');
+		// console.log('USER_Building from knockoutObject');
 	}
 	self.id = ko.observable(data.id());
 	self.userBuildingId = ko.observable(userBuildingId);
@@ -49,7 +49,7 @@ function USER_Building(data, fromDb, startBuildingTime, userBuildingId, level) {
 	});
 	self.StartCounter = function(fresh, elapsed){
 		if(fresh===true){
-			console.log("new Building timer!");
+			// console.log("new Building timer!");
 			SpaceGame.apiStatus('fetch');
 			$.ajax({
 				url: 'api/start_upgrade_user_building.php',
@@ -59,18 +59,18 @@ function USER_Building(data, fromDb, startBuildingTime, userBuildingId, level) {
 				},
 				cache: false
 			}).done(function(value) {
-				console.log(value);
+				// console.log(value);
 				var obj = JSON3.parse(value);
 				SpaceGame.apiStatus('done');
-				console.log('started!!');
+				// console.log('started!!');
 			}).error(function(value) {
-				console.log("NEW AJAX ERROR!", value);
+				// console.log("NEW AJAX ERROR!", value);
 			});
 		}
-
 		// StartTimer
 		self.elapsedTime(elapsed);
 		self.isRunning(true);
+		SpaceGame.sortBuildings();
 		self.timerId = window.setInterval(function(){
 			self.elapsedTime(self.elapsedTime()+1);
 			if(self.remainingTime() <= 0){
@@ -95,19 +95,19 @@ function USER_Building(data, fromDb, startBuildingTime, userBuildingId, level) {
 			},
 			cache: false
 		}).done(function(value) {
-			console.log(value);
+			// console.log(value);
 			var obj = JSON3.parse(value);
 			SpaceGame.apiStatus('done');
-			console.log('upgraded!!');
+			// console.log('upgraded!!');
 		}).error(function(value) {
-			console.log("NEW AJAX ERROR!", value);
+			// console.log("NEW AJAX ERROR!", value);
 		});
 	};
 
 	if(self.upgradeStartTime() !== 0){
 		var rightNow = (new Date()).getTime();
 		if(rightNow - (self.upgradeStartTime() + (self.realBuildTime()*1000)) < 0){
-			console.log('buildtime:', (new Date()).getTime() - (self.upgradeStartTime() + (self.realBuildTime()*1000)));
+			// console.log('buildtime:', (new Date()).getTime() - (self.upgradeStartTime() + (self.realBuildTime()*1000)));
 			var elapsed = parseInt((rightNow - self.upgradeStartTime()) / 1000);
 			self.StartCounter(false, elapsed);
 		}else{

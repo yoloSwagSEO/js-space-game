@@ -40,7 +40,7 @@ if ($user->is_logged_in()) {
 </div>
 <div class="links_frame">
 	<ul>
-		<li>HQ</li>
+		<li>Starbase</li>
 		<li>Shipyard</li>
 		<li>Research Center</li>
 	</ul>
