@@ -1,0 +1,21 @@
+span {
+	display: inline-block;
+}
+
+
+.solarsystem_box {
+	background: red;
+	clear: both;
+	height: 150px;
+
+}
+
+.solarsystem_box .left, .solarsystem_box .right {
+	width: 49.8%;
+	height: 150px;
+	float: left;
+}
+
+.solarsystem_box .right {
+
+}
