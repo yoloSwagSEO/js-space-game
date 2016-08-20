@@ -3,24 +3,24 @@ include('password.php');
 class User extends Password{
 	const SECRET_KEY = '%qpj34dhg%';
 
-    private $_db;
+		private $_db;
 
-    function __construct($db){
-    	parent::__construct();
-    	$this->_db = $db;
-    }
+		function __construct($db){
+			parent::__construct();
+			$this->_db = $db;
+		}
 
 	private function get_user_hash($username){
 
 		try {
-			$stmt = $this->_db->prepare('SELECT password FROM Users WHERE username = :username AND active="Yes"');
+			$stmt = $this->_db->prepare('SELECT password FROM users WHERE username = :username AND active="Yes"');
 			$stmt->execute(array('username' => $username));
 
 			$row = $stmt->fetch();
 			return $row['password'];
 
 		} catch(PDOException $e) {
-		    echo '<p class="bg-danger">'.$e->getMessage().'</p>';
+				echo '<p class="bg-danger">'.$e->getMessage().'</p>';
 		}
 	}
 
@@ -30,40 +30,40 @@ class User extends Password{
 
 		if($this->password_verify($password,$hashed) == 1){
 			echo 'test';
-		    if($rememberme){
-		    	$this->set_remember_me($username);
-		    }else{
-		    	if (isset($_COOKIE['checkIT'])) {
-			    	// empty value and old timestamp
-		    		unset($_COOKIE['checkIT']);
-		    		setcookie('checkIT', '', time() - 3600);
-		    	}
-		    }
-		    $_SESSION['loggedin'] = true;
-		    return true;
+				if($rememberme){
+					$this->set_remember_me($username);
+				}else{
+					if (isset($_COOKIE['checkIT'])) {
+						// empty value and old timestamp
+						unset($_COOKIE['checkIT']);
+						setcookie('checkIT', '', time() - 3600);
+					}
+				}
+				$_SESSION['loggedin'] = true;
+				return true;
 		}
 	}
 
 	public function get_user_json($search_param, $username){
-		$query = "SELECT username as 'name' FROM Users WHERE username LIKE :test AND username != :user_name;";
+		$query = "SELECT username as 'name' FROM users WHERE username LIKE :test AND username != :user_name;";
 		$stmt = $this->_db->prepare($query);
  		$stmt->execute(array('test' => "$search_param%",
  							 'user_name' => "$username"));
 //		$stmt->execute(array('test'=> "$search_param"));
 		$json_data=array();//create the array
 		while($row = $stmt->fetch()) {
-			    $json_array['name']=$row['name'];
-			    $json_array['id']=$row['id'];
-			    array_push($json_data,$json_array);
+					$json_array['name']=$row['name'];
+					$json_array['id']=$row['id'];
+					array_push($json_data,$json_array);
 		}
 
 		return json_encode($json_data);
-//  		return $rows;
+//			return $rows;
 	}
 
 	private function set_remember_me($username){
 			// random number to serve as our key:
-			$randomNumber = rand( 99, 999999  );
+			$randomNumber = rand( 99, 999999	);
 
 			// convert number to hexadecimal form:
 			$token = dechex( ( $randomNumber * $randomNumber ) );
@@ -80,14 +80,14 @@ class User extends Password{
 			$timeNow = $now->getTimestamp();
 
 			// check to see if user is in table already:
-// 			$sql = "SELECT user_id FROM RememberMe WHERE user_id = '$username'";
+// 			$sql = "SELECT user_id FROM rememberme WHERE user_id = '$username'";
 
 // 			// connect to database:
 // 			//$db = new DBCon();
 
 // 			$result = $db->query( $sql );
 			try{
-				$result = $this->_db->prepare("SELECT user_id FROM RememberMe WHERE user_id = '$username'");
+				$result = $this->_db->prepare("SELECT user_id FROM rememberme WHERE user_id = '$username'");
 				$result->execute();
 				$row = $result->fetch(PDO::FETCH_ASSOC);
 
@@ -111,13 +111,13 @@ class User extends Password{
 			//$result->free_memory();
 
 			if ( $exists == true ) {
-				$sql = "UPDATE RememberMe SET
-                    		user_id    = '$username',
-                    		user_token = '$token',
-                    		token_salt = '$randomNumber',
-                    		time       = '$timeNow'";
+				$sql = "UPDATE rememberme SET
+												user_id		= '$username',
+												user_token = '$token',
+												token_salt = '$randomNumber',
+												time			 = '$timeNow'";
 			}else{
-				$sql = "INSERT INTO RememberMe VALUES( '$username', '$token', '$randomNumber', '$timeNow' )";
+				$sql = "INSERT INTO rememberme VALUES( '$username', '$token', '$randomNumber', '$timeNow' )";
 			}
 // 			$result = $db->query( $sql );
 			try{
@@ -144,38 +144,38 @@ class User extends Password{
 
 	public function get_remember_me(){
 		$cookie = isset($_COOKIE['SILLY']) ? $_COOKIE['SILLY'] : '';
-	    if ($cookie) {
-	        list ($mac, $username, $token) = explode(':', $cookie);
-	        //echo $mac.' / '.$username.' / '.$token;
-	        try{
-	        	$result = $this->_db->prepare("SELECT token_salt FROM RememberMe WHERE user_id = '$username' AND user_token = '$token'");
-	        	$result->execute();
-	        	$row = $result->fetch(PDO::FETCH_ASSOC);
-	        	//var_dump($result);
-	        	if(!empty($row['token_salt'])){
-	        		$salt = $row['token_salt'];
-	        	}else{
-	        		return false;
-	        	}
-	        } catch(PDOException $e) {
-	        	echo '<p class="bg-danger">'.$e->getMessage().'</p>';
-	        }
+			if ($cookie) {
+					list ($mac, $username, $token) = explode(':', $cookie);
+					//echo $mac.' / '.$username.' / '.$token;
+					try{
+						$result = $this->_db->prepare("SELECT token_salt FROM rememberme WHERE user_id = '$username' AND user_token = '$token'");
+						$result->execute();
+						$row = $result->fetch(PDO::FETCH_ASSOC);
+						//var_dump($result);
+						if(!empty($row['token_salt'])){
+							$salt = $row['token_salt'];
+						}else{
+							return false;
+						}
+					} catch(PDOException $e) {
+						echo '<p class="bg-danger">'.$e->getMessage().'</p>';
+					}
 			echo 'end2';
-	        if ($mac !== hash_hmac('sha256', $username . ':' . $token, $salt)) {
-	            return false;
-	        }else{
-	        	$_SESSION['username'] = $username;
-	        	$_SESSION['loggedin'] = true;
-	        	return true;
-	        }
-	    }
+					if ($mac !== hash_hmac('sha256', $username . ':' . $token, $salt)) {
+							return false;
+					}else{
+						$_SESSION['username'] = $username;
+						$_SESSION['loggedin'] = true;
+						return true;
+					}
+			}
 	}
 
 	public function logout(){
 		session_destroy();
 		if (isset($_COOKIE['SILLY'])) {
-		    unset($_COOKIE['SILLY']);
-		    setcookie('SILLY', '', time() - 3600); // empty value and old timestamp
+				unset($_COOKIE['SILLY']);
+				setcookie('SILLY', '', time() - 3600); // empty value and old timestamp
 		}
 	}
 
@@ -190,7 +190,7 @@ class User extends Password{
 
 	public function checkUserExistence($userid){
 		try{
-			$query = "SELECT EXISTS(SELECT 1 FROM Users WHERE username = :userid LIMIT 1)  as userExists;";
+			$query = "SELECT EXISTS(SELECT 1 FROM users WHERE username = :userid LIMIT 1)	as userExists;";
 			$stmt = $this->_db->prepare($query);
 	 		$stmt->execute(array('userid' => $userid));
 			$row = $stmt->fetch();
@@ -204,7 +204,7 @@ class User extends Password{
 		//echo "test";
 		try{
 			//echo $user_name;
-			$query = "SELECT id FROM Users WHERE username=:user_name";
+			$query = "SELECT id FROM users WHERE username=:user_name";
 			$stmt = $this->_db->prepare($query);
 	 		$stmt->execute(array(':user_name' => $user_name));
 			$row = $stmt->fetch();
@@ -229,7 +229,7 @@ class User extends Password{
 		//echo "test";
 		try{
 			//echo $user_id;
-			$query = "SELECT username FROM Users WHERE id=:user_id;";
+			$query = "SELECT username FROM users WHERE id=:user_id;";
 			$stmt = $this->_db->prepare($query);
 			$stmt->execute(array(':user_id' => $user_id));
 			$row = $stmt->fetch();
@@ -252,7 +252,7 @@ class User extends Password{
 
 	public function getMyFriends($userid){
 		$query = "SELECT * FROM friends
-				  WHERE accepted = 1 AND (user1 = :user_id OR user2 = :user_id)";
+					WHERE accepted = 1 AND (user1 = :user_id OR user2 = :user_id)";
 		try {
 			$db = ($this->_db);
 			$stmt = $db->prepare($query);

@@ -1,20 +1,21 @@
 <?php
 require_once("db_connect.php");
 // var_dump($dbhandle);
+// var_dump($userData);
 
-$buildingQuery = "SELECT * FROM Buildings";
+$buildingQuery = "SELECT * FROM buildings";
 $buildingFind = mysqli_query($dbhandle, $buildingQuery);
 // var_dump($buildingFind);
 if ($buildingFind && mysqli_num_rows($buildingFind) != 0) {
 	while ($buildingRow = mysqli_fetch_assoc($buildingFind)) {
 		// var_dump($buildingRow);
-		$buildings[] = new Building($buildingRow, $dbhandle);
+		$db_buildings[] = new Building($buildingRow, $dbhandle);
 	}
 }else{
 	echo "no Buildings found in DB!";
 }
 
-$resourceQuery = "SELECT * FROM Resources";
+$resourceQuery = "SELECT * FROM resources";
 $resourceFind = mysqli_query($dbhandle, $resourceQuery);
 // var_dump($resourceFind);
 if ($resourceFind && mysqli_num_rows($resourceFind) != 0) {
@@ -28,7 +29,7 @@ if ($resourceFind && mysqli_num_rows($resourceFind) != 0) {
 
 $output = json_encode(
 [
-	'buildings' => $buildings,
+	'db_buildings' => $db_buildings,
 	'resources' => $resources
 ], JSON_UNESCAPED_UNICODE);
 print $output;
@@ -58,7 +59,7 @@ Class Building {
 		$this->powers = null;
 		$this->resources = null;
 
-		$powerQuery = "SELECT *, resourcePower as value FROM BuildingPowers WHERE buildingId = '$this->id';";
+		$powerQuery = "SELECT *, resourcePower as value FROM buildingpowers WHERE buildingId = '$this->id';";
 		$powerFind = mysqli_query($dbhandle, $powerQuery);
 		// var_dump($powerFind);
 		if ($powerFind && mysqli_num_rows($powerFind) != 0) {
@@ -71,7 +72,7 @@ Class Building {
 			echo "no BuildingPowers found in DB!";
 		}
 
-		$resourceQuery = "SELECT *, resourceCost as value  FROM BuildingCosts WHERE buildingId = '$this->id';";
+		$resourceQuery = "SELECT *, resourceCost as value  FROM buildingcosts WHERE buildingId = '$this->id';";
 		$resourceFind = mysqli_query($dbhandle, $resourceQuery);
 		// var_dump($resourceFind);
 		if ($resourceFind && mysqli_num_rows($resourceFind) != 0) {

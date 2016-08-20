@@ -1,0 +1,13 @@
+/* Building Styles */
+.game_frame {
+	padding: .5rem;
+	overflow-y: auto;
+	height: 100vh;
+}
+
+@media only screen and (max-width: 601px) {
+	.game_frame {
+		overflow-y: visible;
+		max-height: none;
+	}
+}
