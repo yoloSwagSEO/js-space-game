@@ -70,7 +70,4 @@
 			</div>
 		</div>
 	</div>
-	<h4>Building in progress</h4>
-	<div class="in_progress building_list row">
-	</div>
 </div>

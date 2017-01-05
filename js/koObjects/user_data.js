@@ -70,7 +70,6 @@ function USER_Building(data, fromDb, startBuildingTime, userBuildingId, level) {
 		// StartTimer
 		self.elapsedTime(elapsed);
 		self.isRunning(true);
-		SpaceGame.sortBuildings();
 		self.timerId = window.setInterval(function(){
 			self.elapsedTime(self.elapsedTime()+1);
 			if(self.remainingTime() <= 0){

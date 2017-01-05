@@ -14,6 +14,10 @@
 	border-radius: $base_border_radius;
 	color: $primary_dark_text_color;
 
+	&.running {
+		opacity: 0.7;
+	}
+
 	.info_layer {
 		position: relative;
 		height: auto;

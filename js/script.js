@@ -77,8 +77,9 @@ SpaceGame = function(){
 	};
 
 	SpaceGame.sortBuildings = function(){
-		var running = '';
-		$('.in_progress').append($('.building.running').parent());
+		var running = $('.building.running').parent();
+		$('.in_progress').append(running);
+		console.log('sortBuildings');
 	};
 };
 ko.applyBindings(SpaceGame);
